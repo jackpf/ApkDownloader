@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="AndroidMarketApi/AndroidMarketApi.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/AndroidMarketApi/AndroidMarketApi.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="false" mainClassHandleIdentifier="=AndroidMarketApi/src&lt;com.gc.android.market.api{Main.java[Main" manifestLocation="/AndroidMarketApi/AndroidMarketApi.mf" manifestVersion="1.0" reuseManifest="true" saveManifest="true" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <javaElement handleIdentifier="=AndroidMarketApi/src&lt;com.gc.android.market.api"/>
+        <javaElement handleIdentifier="=AndroidMarketApi/src&lt;com.gc"/>
+        <javaElement handleIdentifier="=AndroidMarketApi/src&lt;com.gc.android.market"/>
+        <javaElement handleIdentifier="=AndroidMarketApi/src&lt;com.gc.android"/>
+        <javaElement handleIdentifier="=AndroidMarketApi/src&lt;com.gc.android.market.api.model"/>
+        <javaElement handleIdentifier="=AndroidMarketApi/src&lt;com"/>
+    </selectedElements>
+</jardesc>

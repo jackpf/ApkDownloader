@@ -1,0 +1,33 @@
+{
+   "background": {
+      "scripts": [ "assets/js/jsxcompressor.min.js", "assets/js/protocol.js", "assets/js/progress.js", "assets/js/background.js" ]
+   },
+   "content_scripts": [ {
+      "js": [ "assets/js/google_play.js" ],
+      "matches": [ "*://apps.evozi.com/apk-downloader/download/*" ],
+      "run_at": "document_end"
+   }, {
+      "js": [ "assets/js/google_play.js" ],
+      "matches": [ "*://play.google.com/*" ],
+      "run_at": "document_end"
+   } ],
+   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+   "description": "Download APKs Directly From Google Play To Your Computer",
+   "homepage_url": "http://apps.evozi.com/apk-downloader/",
+   "icons": {
+      "128": "assets/img/icon_128.png",
+      "16": "assets/img/icon_16.png",
+      "48": "assets/img/icon_48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnC3/KJTcajS+lXtADa8kjAIJxcTH0JDaQZT4hPgcg/2CA9F/AtK7Sh+v86OsguKzTHWKz4ocIawQ+NS0yhNbor2jDAF0nIkO6ROvbTFcvazJSHuK5xYYPxTUaLVXlSAp8xEFmRDe6Rjl+o93MNz4b063ZdFAc2sbN90SdzMTSNgPtyE55bYBfOIYz2OovgH/bk8cwWvM9vfERLoKFjjCGs6vYqnoKbTuvriD1oZpx3zskl6G0bGm42t7cSwFltf5Dk8hZa+U1lD+k/RfM+arJijHa0Znc3YVBO4d0AKvMoVWehq5tAGnInxUmLYmOMucH0zBpp1YaLtbJVZPF/W6EQIDAQAB",
+   "manifest_version": 2,
+   "name": "APK Downloader",
+   "options_page": "options.html",
+   "page_action": {
+      "default_icon": "assets/img/page_action.png",
+      "default_title": "APK Downloader"
+   },
+   "permissions": [ "cookies", "tabs", "webNavigation", "*://play.google.com/*", "*://*.android.clients.google.com/*", "https://www.google.com/accounts/ClientLogin" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.1.2"
+}

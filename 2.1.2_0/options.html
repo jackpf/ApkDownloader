@@ -1,0 +1,141 @@
+<!--
+Evozi - APK Downloader
+http://apps.evozi.com/apk-downloader/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Download APKs Directly From Google Play To Your Computer With APK Downloader Extension For Google Chrome">
+<link rel="shortcut icon" href="assets/img/favicon.ico">
+<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/css/options.css" rel="stylesheet">
+<title>APK Downloader Options</title>
+
+</head>
+
+  <body>
+    <div class="container">
+
+      <form class="form-signin">
+        <h2 class="form-signin-heading"><img src="assets/img/icon_16.png"> APK Downloader Options</h2>
+
+       <div id="error_notification" class="display-hidden">
+          <div class="alert alert-block alert-danger fade in">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <p id="error_text"></p>
+          </div>
+        </div>
+
+        <div id="info_form" class="hide-advanced">
+            <div class="form-group">
+                <label>Google Play email address</label><br>
+                <input type="email" class="form-control" id="auth_email" disabled>
+            </div>
+
+            <div class="form-group">
+                <label>Google Service Framework ID (Android Device ID)</label>
+                <input type="text" class="form-control" id="device_id" disabled>
+            </div>
+
+            <button id="btn_logout" class="btn btn-lg btn-default btn-block" type="submit" tabindex="100">Sign Out</button><br>
+
+                <div id="advanced-settings">
+                    <div class="form-group row">
+                     
+                      <div class="col-lg-4">
+                        <label for="slt_country">Sim Country</label><br>
+                        <select id="slt_country" class="form-control col-lg-2"></select>
+                      </div>
+                      <div class="col-lg-4">
+                         <label for="slt_operator">Sim Operator</label><br>
+                        <select id="slt_operator" class="form-control col-lg-2"></select>
+                      </div>
+                    </div>
+
+                    <input type="button" id="btn_default" class="btn btn-info" value="Use default" title="Use default SIM operator" tabindex="100">
+                    <input type="button" id="btn_save" class="btn btn-success" value="Save SIM operator" tabindex="100">
+                </div>
+                <br>
+                <!-- shown/hidden depends on hide-advanced/show-advanced class in parent -->
+                <button class="btn btn-warning btn-advanced-settings expander btn-block">Show advanced settings</button>
+                <button class="btn btn-default btn-advanced-settings collapser btn-block">Hide advanced settings</button>
+                <br>
+       </div>
+
+      <div id="device_form" class="hide-device">
+            <div id="device-settings">
+                <div class="alert alert-block alert-danger fade in">
+                    <p id="error_text"><strong>Do not edit this if you don't know what you are doing!</strong><br>It might not be working anymore! Google Play maybe will check your device that linked to your GSF ID<br>Wrong settings will cause download to fail!</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="device_locale">Device Locale</label><br>
+                    <input type="text" class="form-control" id="device_locale">
+                </div>
+
+                <div class="form-group">
+                    <label for="country_code">Country Code</label><br>
+                    <input type="text" class="form-control" id="country_code">
+                </div>
+
+                <div class="form-group">
+                    <label for="deviceAndSdkVersion">Device And SDK Version</label><br>
+                    <input type="text" class="form-control" id="deviceAndSdkVersion">
+                </div>
+
+                <input type="button" id="btn_device_default" class="btn btn-info" value="Use default" title="Use default device settings" tabindex="100">
+                <input type="button" id="btn_device_save" class="btn btn-success" value="Save device settings" tabindex="100">
+            </div>
+            <br>
+            <button class="btn btn-warning btn-device-settings expander btn-block">Show device settings</button>
+            <button class="btn btn-default btn-device-settings collapser btn-block">Hide device settings</button>
+            <br><br>
+       </div>
+
+       <div id="login_form">
+            <div class="form-group">
+                <label for="user_email">Google Play email address</label>
+                <input type="email" class="form-control" id="user_email" placeholder="Enter email that you used on Google Play" size="25" tabindex="10" onkeydown="hide_notification();" required>
+                <p id="user_email_help" class="text-warning display-hidden">Enter your Google Play email account here, it must be <strong>activated</strong> before you can use it.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="user_password">Password</label>
+                <input type="password" class="form-control" id="user_password" placeholder="Password or Application specific passwords" size="50" tabindex="20" required>
+                <p id="user_password_help" class="text-warning display-hidden">
+                    This password is used once to retrieve an authentication token and is <strong>NOT</strong> stored.
+                    <br>You also can use <a href="https://support.google.com/accounts/answer/185833?hl=en" target="_blank">Application specific passwords.</a> if you still worry about your password.
+                    <br><strong>Note:</strong> Two factor authentication is not supported, it is recommended to use <a href="https://support.google.com/accounts/answer/185833" target="_blank">Application specific passwords</a>
+                </p>
+            </div>
+
+            <div class="form-group">
+                <label for="user_device_id">GSF ID KEY (Google Service Framework) <br/><a href="https://play.google.com/store/apps/details?id=com.evozi.deviceid" target="_blank"/>Click here to obtain using app</a> or <a href="http://apps.evozi.com/apk-downloader/#guide" target="_blank"/>manual way</a><br/></label>
+                <input type="text" class="form-control" maxlength="16" id="user_device_id" size="20" tabindex="30" pattern="[0-9a-fA-F]{16}" placeholder="0123456789ABCDEF" required>
+                <p id="user_device_id_help" class="text-warning display-hidden">
+                    Your Device ID (GSF ID KEY) can be found by dialing <strong>*#*#TALK#*#*</strong> which will open the <em>GTalk Service Monitor</em>. Search for a line starting with <em>Device ID: android-....</em>. You must enter the ID without <em>android-</em> prefix here.<br>
+                    <br>
+                    <strong> If above method don't work then use this apps to obtain GSF ID KEY : </strong><a href="https://play.google.com/store/apps/details?id=com.evozi.deviceid" target="_blank">https://play.google.com/store/apps/details?id=com.evozi.deviceid</a>
+                </p>
+                
+            </div>
+
+            <button id="btn_login" class="btn btn-lg btn-primary btn-block" type="submit" tabindex="100">Sign in</button>
+
+        </div>
+
+        <div id="footer">
+            <p class="text-muted credit">Brought to you by <a href="http://evozi.com/l.php?go=apkdownloader" target="_blank">Evozi</a> | <a href="http://apps.evozi.com/apk-downloader/#guide" target="_blank">APK Downloader Guide</a> | Version 2.1.2 (Feb 2014) </p>
+        </div>
+
+      </form>
+
+    </div> <!-- /container -->
+
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+    <script src="assets/js/codes.js"></script>
+    <script src="assets/js/options.js"></script>
+  </body>
+</html>
