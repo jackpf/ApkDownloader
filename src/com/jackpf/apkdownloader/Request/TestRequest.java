@@ -34,8 +34,6 @@ public class TestRequest extends RequestInterface
         HttpClient a = new DefaultHttpClient();
         HttpPost request = new HttpPost("https://android.clients.google.com/market/api/ApiRequest");*/
         
-        List<NameValuePair> values = new ArrayList<NameValuePair>();
-        
         Bytes
             SEP_1 = B(16),
             SEP_2 = B(24),
@@ -92,7 +90,7 @@ public class TestRequest extends RequestInterface
             System.err.println(entry.getKey()+": "+bytes.size());
         }
         
-        System.err.println(bytes);
+        String payload = getEncoded(bytes);
     }
     
     private class Bytes extends ArrayList<Integer>
@@ -167,6 +165,18 @@ public class TestRequest extends RequestInterface
         } else {
             throw new RuntimeException(String.format("Invalid type of %s", o.getClass().getName()));
         }
+    }
+    
+    private String getEncoded(Bytes bytes)
+    {
+        StringBuilder sb = new StringBuilder();
+        
+        for (int i = 0; i < bytes.size(); i++) {
+            int prim = bytes.get(i);
+            sb.append((char) prim);
+        }
+        
+        return sb.toString();
     }
     
     private int getSimOperatorLength(Map<String, Object> map)
