@@ -92,7 +92,14 @@ public class TestRequest extends RequestInterface
         map.put("SEP_12", SEP_12);
         map.put("packageName", "com.jackpf.blockchainsearch");
         map.put("SEP_13", SEP_13);
-        map.put("SEP_14", SEP_14);
+        
+        
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
+            serializer.serialize(entry.getValue());
+        }
+        
+        Serializer tmpSerializer = new Serializer();
+        tmpSerializer.serialize(SEP_14);
         Serializer.Bytes tmp = new Serializer.Bytes();
         int num = getSimOperatorLength(map);
         for (int times = 0; times < 5; times++) {
@@ -109,12 +116,9 @@ public class TestRequest extends RequestInterface
         for (int j = 0; j < tmp.size(); j++) {
             tmp2[j] = tmp.get(j);
         }
-        map.put("simOperatorLength", tmp2);
-        map.put("SEP_15", SEP_15);
-        
-        for (Map.Entry<String, Object> entry : map.entrySet()) {
-            serializer.serialize(entry.getValue());
-        }
+        tmpSerializer.serialize(tmp2);
+        tmpSerializer.serialize(SEP_15);
+        serializer.getBytes().addAll(0, tmpSerializer.getBytes());
         
         HttpClient client = new DefaultHttpClient();
         HttpPost post = new HttpPost("https://android.clients.google.com/market/api/ApiRequest");
