@@ -18,6 +18,7 @@ import org.apache.http.util.EntityUtils;
 
 import android.util.Base64;
 
+import com.jackpf.apkdownloader.Entity.App;
 import com.jackpf.apkdownloader.Exception.PlayApiException;
 
 public class PlayApi
@@ -55,7 +56,7 @@ public class PlayApi
         this.deviceId = deviceId;
     }
     
-    public String getDownloadPath(String packageName) throws PlayApiException
+    public App getApp(String packageName) throws PlayApiException
     {
         Serializer.Bytes protoBuf = buildProtoBuf(packageName).getBytes();
         
@@ -72,7 +73,6 @@ public class PlayApi
             post.setEntity(new StringEntity("version=2&request=" + Base64.encodeToString(realBytes, Base64.DEFAULT)));
             
             HttpResponse response = client.execute(post);
-            System.err.println(response.getStatusLine().getStatusCode());
     
             byte[] bin = EntityUtils.toByteArray(response.getEntity());
             
@@ -87,7 +87,7 @@ public class PlayApi
                 sb.append(line);
             }
             
-            return extractDownloadPath(sb.toString());
+            return new App(packageName, extractDownloadPath(sb.toString()), extractMarketDA(sb.toString()));
         } catch (Exception e) {
             throw new PlayApiException(e.getMessage());
         }
@@ -103,6 +103,25 @@ public class PlayApi
         }
         
         return m.group(0);
+    }
+    
+    private String extractMarketDA(String str)
+    {
+        boolean capture = false;
+        StringBuilder sb = new StringBuilder();
+        
+        for (int i = 0; i < str.length(); i++) {
+            byte b = (byte) str.charAt(i);
+            if (b == 0x014) {
+                capture = true;
+            } else if (capture && b == 0x0c) {
+                break;
+            } else if (capture) {
+                sb.append(str.charAt(i));
+            }
+        }
+        
+        return sb.toString();
     }
     
     private Serializer buildProtoBuf(String packageName)
