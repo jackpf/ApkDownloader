@@ -70,14 +70,6 @@ public class Serializer
         return bytes;
     }
     
-    public void debug()
-    {
-        for (int i = 0; i < bytes.size(); i++) {
-            System.err.print(bytes.get(i) + ", ");
-        }
-        System.err.println();
-    }
-    
     public static class Bytes extends ArrayList<Byte>
     {
         /**
