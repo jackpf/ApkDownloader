@@ -8,27 +8,26 @@ public class Serializer
     
     public Serializer()
     {
-        this.bytes = new Bytes();
+        bytes = new Bytes();
     }
     
     public Bytes serialize(String s)
     {
         serialize(s.length());
-        for (int i = 0; i < s.length(); i++) {
-            bytes.add((int) s.charAt(i));
-        }
+        
+        bytes.addAll(s.getBytes());
         
         return bytes;
     }
     
     public Bytes serialize(Integer num)
     {
-        for (int i = 0; i < 5; i++) {
+        for (int times = 0; times < 5; times++) {
             int elm = num % 128;
             if ((num >>>= 7) > 0) {
                 elm += 128;
             }
-            bytes.add(elm);
+            bytes.add((byte) elm);
             if (num == 0) {
                 break;
             }
@@ -39,14 +38,14 @@ public class Serializer
     
     public Bytes serialize(Boolean b)
     {
-        bytes.add(b ? 1 : 0);
+        bytes.add((byte) (b ? 1 : 0));
         
         return bytes;
     }
     
-    public Bytes serialize(Bytes newBytes)
+    public Bytes serialize(byte[] array)
     {
-        bytes.addAll(newBytes);
+        bytes.addAll(array);
         
         return bytes;
     }
@@ -59,8 +58,8 @@ public class Serializer
             return serialize((Integer) o);
         } else if (o instanceof Boolean) {
             return serialize((Boolean) o);
-        } else if (o instanceof Bytes) {
-            return serialize((Bytes) o);
+        } else if (o instanceof byte[]) {
+            return serialize((byte[]) o);
         } else {
             throw new RuntimeException(String.format("Invalid type of %s", o.getClass().getName()));
         }
@@ -71,11 +70,26 @@ public class Serializer
         return bytes;
     }
     
-    public class Bytes extends ArrayList<Integer>
+    public void debug()
+    {
+        for (int i = 0; i < bytes.size(); i++) {
+            System.err.print(bytes.get(i) + ", ");
+        }
+        System.err.println();
+    }
+    
+    public static class Bytes extends ArrayList<Byte>
     {
         /**
          * Generated UID
          */
         private static final long serialVersionUID = 3794239392551729969L;
+        
+        public void addAll(byte[] array)
+        {
+            for (int i = 0; i < array.length; i++) {
+                add(array[i]);
+            }
+        }
     }
 }

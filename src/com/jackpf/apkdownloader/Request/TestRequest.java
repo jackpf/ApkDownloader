@@ -1,27 +1,38 @@
 package com.jackpf.apkdownloader.Request;
 
-import java.util.ArrayList;
+import java.io.StringWriter;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
-import org.apache.http.NameValuePair;
+import org.apache.commons.io.IOUtils;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import android.util.Base64;
 
 import com.jackpf.apkdownloader.Entity.Response;
 import com.jackpf.apkdownloader.Model.RequestInterface;
+import com.jackpf.apkdownloader.Service.Serializer;
 
 public class TestRequest extends RequestInterface
 {
     @Override
     public Response call(Object ...params)
     {
+        try {
         search();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         
         return null;
     }
     
-    private void search()
-    {System.err.println("call");
+    private void search() throws Exception
+    {
         /*final MarketSession session = new MarketSession(true);
         session.login("jack.philip.farrelly@gmail.com", "glhx xpow gkck lpks", "129596a2a13cb718");
 
@@ -34,23 +45,25 @@ public class TestRequest extends RequestInterface
         HttpClient a = new DefaultHttpClient();
         HttpPost request = new HttpPost("https://android.clients.google.com/market/api/ApiRequest");*/
         
-        Bytes
-            SEP_1 = B(16),
-            SEP_2 = B(24),
-            SEP_3 = B(34),
-            SEP_4 = B(42),
-            SEP_5 = B(50),
-            SEP_6 = B(58),
-            SEP_7 = B(66),
-            SEP_8 = B(74),
-            SEP_9 = B(82),
-            SEP_10 = B(90),
-            SEP_11 = B(19, 82),
-            SEP_12 = B(10),
-            SEP_13 = B(20),
-            SEP_14 = B(10),
-            SEP_15 = B(10)
+        byte[]
+            SEP_1 = new byte[]{16},
+            SEP_2 = new byte[]{24},
+            SEP_3 = new byte[]{34},
+            SEP_4 = new byte[]{42},
+            SEP_5 = new byte[]{50},
+            SEP_6 = new byte[]{58},
+            SEP_7 = new byte[]{66},
+            SEP_8 = new byte[]{74},
+            SEP_9 = new byte[]{82},
+            SEP_10 = new byte[]{90},
+            SEP_11 = new byte[]{19, 82},
+            SEP_12 = new byte[]{10},
+            SEP_13 = new byte[]{20},
+            SEP_14 = new byte[]{10},
+            SEP_15 = new byte[]{10}
         ;
+        
+        Serializer serializer = new Serializer();
         
         Map<String, Object> map = new LinkedHashMap<String, Object>();
         map.put("authToken", "DQAAAPcAAAD3nw9whRZztwHkhUnxWe_UZbi7DXDM3rqiGrPagbBMgb3e0DxZyqLNwME6Idl5C05EA0qxVaLHayXhhvchai_i4TrEaikTuBDTMVr8-fOCRD9iXFgzUeQyMPBfzG0DCMUJW7LH7fW07LPGWGKmoCmhVnL-AOUfNlWiav6ZsmnyssYiTYVvJbe2RqeQsur79dEzVWo6ph5iAGxEMccMLcpaghlJf_6MKrzDDZY3UEMhtyoCpDz1QytXVNZj60sU0H6tpTDTxyoKgY6ED4e74TuDNSV8X6m-HEiUqO1W6-2ExThpiBFuLjsNTuM_TpTywLcAqpAo782CeA4KxHK6nRPX");
@@ -80,114 +93,58 @@ public class TestRequest extends RequestInterface
         map.put("packageName", "com.jackpf.blockchainsearch");
         map.put("SEP_13", SEP_13);
         map.put("SEP_14", SEP_14);
-        map.put("simOperatorLength", serialize(new Bytes(), getSimOperatorLength(map)));
-        map.put("SEP_15", SEP_15);
-        
-        Bytes bytes = new Bytes();
-        
-        for (Map.Entry<String, Object> entry : map.entrySet()) {
-            serialize(bytes, entry.getValue());
-            System.err.println(entry.getKey()+": "+bytes.size());
-        }
-        
-        String payload = getEncoded(bytes);
-    }
-    
-    private class Bytes extends ArrayList<Integer>
-    {
-        /**
-         * 
-         */
-        private static final long serialVersionUID = 3794239392551729969L;
-    }
-    
-    private Bytes B(int ...ints)
-    {
-        Bytes bytes = new Bytes();
-        
-        for (int i = 0; i < ints.length; i++) {
-            bytes.add(ints[i]);
-        }
-        
-        return bytes;
-    }
-    
-    private Bytes serialize(Bytes bytes, String s)
-    {
-        serialize(bytes, s.length());
-        for (int i = 0; i < s.length(); i++) {
-            bytes.add((int) s.charAt(i));
-        }
-        
-        return bytes;
-    }
-    
-    private Bytes serialize(Bytes bytes, Integer num)
-    {
-        for (int i = 0; i < 5; i++) {
+        Serializer.Bytes tmp = new Serializer.Bytes();
+        int num = getSimOperatorLength(map);
+        for (int times = 0; times < 5; times++) {
             int elm = num % 128;
             if ((num >>>= 7) > 0) {
                 elm += 128;
             }
-            bytes.add(elm);
+            tmp.add((byte) elm);
             if (num == 0) {
                 break;
             }
         }
-        
-        return bytes;
-    }
-    
-    private Bytes serialize(Bytes bytes, Boolean b)
-    {
-        bytes.add(b ? 1 : 0);
-        
-        return bytes;
-    }
-    
-    private Bytes serialize(Bytes bytes, Bytes newBytes)
-    {
-        bytes.addAll(newBytes);
-        
-        return bytes;
-    }
-    
-    private Bytes serialize(Bytes bytes, Object o)
-    {
-        if (o instanceof String) {
-            return serialize(bytes, (String) o);
-        } else if (o instanceof Integer) {
-            return serialize(bytes, (Integer) o);
-        } else if (o instanceof Boolean) {
-            return serialize(bytes, (Boolean) o);
-        } else if (o instanceof Bytes) {
-            return serialize(bytes, (Bytes) o);
-        } else {
-            throw new RuntimeException(String.format("Invalid type of %s", o.getClass().getName()));
+        byte[] tmp2 = new byte[tmp.size()];
+        for (int j = 0; j < tmp.size(); j++) {
+            tmp2[j] = tmp.get(j);
         }
-    }
-    
-    private String getEncoded(Bytes bytes)
-    {
-        StringBuilder sb = new StringBuilder();
+        map.put("simOperatorLength", tmp2);
+        map.put("SEP_15", SEP_15);
         
-        for (int i = 0; i < bytes.size(); i++) {
-            int prim = bytes.get(i);
-            sb.append((char) prim);
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
+            serializer.serialize(entry.getValue());
         }
         
-        return sb.toString();
+        HttpClient client = new DefaultHttpClient();
+        HttpPost post = new HttpPost("https://android.clients.google.com/market/api/ApiRequest");
+        
+        byte[] realBytes = new byte[serializer.getBytes().size()];
+        for (int i = 0; i < serializer.getBytes().size(); i++) {
+            realBytes[i] = serializer.getBytes().get(i);
+        }
+        
+        post.addHeader("Content-Type", "application/x-www-form-urlencoded");
+        post.setEntity(new StringEntity("version=2&request=" + Base64.encodeToString(realBytes, Base64.DEFAULT)));
+        
+        HttpResponse response = client.execute(post);
+        System.err.println(response.getStatusLine().getStatusCode());
+        
+        StringWriter writer = new StringWriter();
+        IOUtils.copy(response.getEntity().getContent(), writer, "UTF-8");
+        System.err.println(writer.toString());
+
     }
     
     private int getSimOperatorLength(Map<String, Object> map)
     {
-        Bytes bytes = new Bytes();
+        Serializer tmpSerializer = new Serializer();
         
         for (Map.Entry<String, Object> entry : map.entrySet()) {
-            serialize(bytes, entry.getValue());
+            tmpSerializer.serialize(entry.getValue());
             
             if (entry.getKey().equals("simOperatorNumeric")) {
-                return bytes.size() + 1;
+                return tmpSerializer.getBytes().size() + 1;
             }
         }
         
