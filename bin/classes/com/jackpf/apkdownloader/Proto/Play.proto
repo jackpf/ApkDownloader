@@ -1,0 +1,15 @@
+message RequestContext {
+	required string authSubToken = 1; // authsub token for service 'android'
+	required bool isSecure = 2; // is this a secure request or not
+	required int32 version = 3;  // always 1002
+	required string androidId = 4;  // android id converted to hexadecimal
+	optional string deviceAndSdkVersion = 5; // ro.product.device ':' ro.build.version.sdk 
+	optional string userLanguage = 6; // ro.product.locale.language
+	optional string userCountry = 7; // ro.product.locale.region
+	optional string operatorAlpha = 8; // gsm.operator.alpha
+	optional string simOperatorAlpha = 9; // gsm.sim.operator.alpha
+	optional string operatorNumeric = 10; // gsm.operator.numeric
+	optional string simOperatorNumeric = 11; // sim.gsm.operator.numeric
+    optional int32 packageNameLength = 12;
+    optional string packageName = 13;
+}

@@ -86,7 +86,7 @@ public class PlayApi
             while ((line = in.readLine()) != null) {
                 sb.append(line);
             }
-            
+System.err.println(Base64.encodeToString(sb.toString().getBytes(), Base64.DEFAULT));
             return new App(packageName, extractDownloadPath(sb.toString()), extractMarketDA(sb.toString()));
         } catch (Exception e) {
             throw new PlayApiException(e.getMessage());
