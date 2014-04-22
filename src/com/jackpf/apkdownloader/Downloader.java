@@ -25,7 +25,7 @@ public class Downloader
         
         Request request = new DownloadManager.Request(Uri.parse(app.getDownloadPath()))
             .setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE)
-            .setAllowedOverRoaming(false)
+            .setAllowedOverRoaming(true)
             .setTitle(app.getAppId())
             .setDescription("App downloading...")
             .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, app.getAppId() + ".apk")
