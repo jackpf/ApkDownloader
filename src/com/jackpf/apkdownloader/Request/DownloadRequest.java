@@ -11,28 +11,13 @@ import com.jackpf.apkdownloader.Service.PlayApi;
 
 public class DownloadRequest extends RequestInterface
 {
-    private Object getParam(Object[] params, int i, Class<?> c)
-    {
-        if (params.length < i + 1) {
-            throw new InvalidParameterException("Not enough arguments");
-        }
-        
-        Object o = params[i];
-        
-        if (!o.getClass().equals(c)) {
-            throw new InvalidParameterException(String.format("Expected argument of type %s but got %s", o.getClass(), c));
-        }
-        
-        return o;
-    }
-    
     @Override
     public Response call(Object ...params)
     {
         try {
-            Authenticator authenticator = (Authenticator) getParam(params, 0, Authenticator.class);
-            Downloader downloader = (Downloader) getParam(params, 1, Downloader.class);
-            String appId = (String) getParam(params, 2, String.class);
+            Authenticator authenticator = (Authenticator) getParam(0, Authenticator.class);
+            Downloader downloader = (Downloader) getParam(1, Downloader.class);
+            String appId = (String) getParam(2, String.class);
             
             download(authenticator, downloader, appId);
         } catch (Exception e) {
@@ -48,6 +33,6 @@ public class DownloadRequest extends RequestInterface
         
         App app = api.getApp(appId);
         
-        downloader.download(app, authenticator.getToken());
+        downloader.download(app);
     }
 }

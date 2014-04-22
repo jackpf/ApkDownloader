@@ -3,6 +3,15 @@
 
     <string name="app_name">ApkDownloader</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+
+    <string name="pref_auth_title">Authentication</string>
+    <string name="pref_email_key">email</string>
+    <string name="pref_email_title">Email</string>
+    <string name="pref_email_default" />
+    <string name="pref_email_summary">Your google login email address</string>
+    <string name="pref_password_key">password</string>
+    <string name="pref_password_title">Password</string>
+    <string name="pref_password_default" />
+    <string name="pref_password_summary">Your google login password</string>
 
 </resources>

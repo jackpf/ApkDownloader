@@ -4,13 +4,25 @@ import java.util.ArrayList;
 
 public class Serializer
 {
+    /**
+     * Bytes
+     */
     private Bytes bytes;
     
+    /**
+     * Constructor
+     */
     public Serializer()
     {
         bytes = new Bytes();
     }
     
+    /**
+     * String serializer
+     * 
+     * @param s
+     * @return
+     */
     public Bytes serialize(String s)
     {
         serialize(s.length());
@@ -20,6 +32,12 @@ public class Serializer
         return bytes;
     }
     
+    /**
+     * Int serializer
+     * 
+     * @param num
+     * @return
+     */
     public Bytes serialize(Integer num)
     {
         for (int times = 0; times < 5; times++) {
@@ -36,6 +54,12 @@ public class Serializer
         return bytes;
     }
     
+    /**
+     * Boolean serializer
+     * 
+     * @param b
+     * @return
+     */
     public Bytes serialize(Boolean b)
     {
         bytes.add((byte) (b ? 1 : 0));
@@ -43,6 +67,12 @@ public class Serializer
         return bytes;
     }
     
+    /**
+     * Raw bytes serializer
+     * 
+     * @param array
+     * @return
+     */
     public Bytes serialize(byte[] array)
     {
         bytes.addAll(array);
@@ -50,6 +80,12 @@ public class Serializer
         return bytes;
     }
     
+    /**
+     * Object serializer
+     * 
+     * @param o
+     * @return
+     */
     public Bytes serialize(Object o)
     {
         if (o instanceof String) {
@@ -65,11 +101,19 @@ public class Serializer
         }
     }
     
+    /**
+     * Get bytes
+     * 
+     * @return
+     */
     public Bytes getBytes()
     {
         return bytes;
     }
     
+    /**
+     * Bytes entity
+     */
     public static class Bytes extends ArrayList<Byte>
     {
         /**

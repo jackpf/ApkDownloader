@@ -1,5 +1,7 @@
 package com.jackpf.apkdownloader.Model;
 
+import java.security.InvalidParameterException;
+
 import com.jackpf.apkdownloader.Entity.Response;
 
 
@@ -21,6 +23,28 @@ public abstract class RequestInterface
     public RequestInterface(Object ...params)
     {
         this.params = params;
+    }
+    
+    /**
+     * Get a parameter for a given index and do some type checking
+     * 
+     * @param i
+     * @param c
+     * @return
+     */
+    protected Object getParam(int i, Class<?> c)
+    {
+        if (params.length < i + 1) {
+            throw new InvalidParameterException("Not enough arguments");
+        }
+        
+        Object o = params[i];
+        
+        if (!o.getClass().equals(c)) {
+            throw new InvalidParameterException(String.format("Expected argument of type %s but got %s", o.getClass(), c));
+        }
+        
+        return o;
     }
     
     /**

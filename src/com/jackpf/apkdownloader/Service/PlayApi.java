@@ -23,8 +23,14 @@ import com.jackpf.apkdownloader.Exception.PlayApiException;
 
 public class PlayApi
 {
+    /**
+     * Authenticator
+     */
     private Authenticator authenticator;
     
+    /**
+     * Request vars
+     */
     private final int       SDK_VERSION            = 8013013;
     private final String    DEVICE_SDK_AND_VERSION = "mako:18";
     private final String    OPERATOR               = "T-Mobile";
@@ -32,9 +38,20 @@ public class PlayApi
     private final String    LOCALE                 = "en";
     private final String    COUNTRY                = "us";
     
+    /**
+     * Request url
+     */
     private final String    REQUEST_URL            = "https://android.clients.google.com/market/api/ApiRequest";
+    /**
+     * Request version
+     */
     private final int       REQUEST_VERSION        = 2;
     
+    /**
+     * Protobuf fields
+     * TODO: Actually use protobuf
+     *  Can't quite get the proto file right though
+     */
     private final byte[]
         SEP_1   = new byte[]{16},
         SEP_2   = new byte[]{24},
@@ -53,11 +70,23 @@ public class PlayApi
         SEP_15  = new byte[]{10}
     ;
     
+    /**
+     * Constructor
+     * 
+     * @param authenticator
+     */
     public PlayApi(Authenticator authenticator)
     {
         this.authenticator = authenticator;
     }
     
+    /**
+     * Get app by package name
+     * 
+     * @param packageName
+     * @return
+     * @throws PlayApiException
+     */
     public App getApp(String packageName) throws PlayApiException
     {
         Serializer.Bytes protoBuf = buildProtoBuf(packageName).getBytes();
@@ -101,6 +130,12 @@ public class PlayApi
         }
     }
     
+    /**
+     * Manually build a protobuf request
+     * 
+     * @param packageName
+     * @return
+     */
     private Serializer buildProtoBuf(String packageName)
     {
         Serializer serializer = new Serializer();
@@ -112,7 +147,7 @@ public class PlayApi
         map.put("SEP_2", SEP_2);
         map.put("sdkVersion", SDK_VERSION);
         map.put("SEP_3", SEP_3);
-        map.put("deviceId", authenticator.getGsfAndroidId());
+        map.put("deviceId", authenticator.getGsfId());
         map.put("SEP_4", SEP_4);
         map.put("deviceAndSdkVersion", DEVICE_SDK_AND_VERSION);
         map.put("SEP_5", SEP_5);
@@ -148,6 +183,13 @@ public class PlayApi
         return serializer;
     }
     
+    /**
+     * Manually extract the download path from the protobuf response
+     * 
+     * @param str
+     * @return
+     * @throws PlayApiException
+     */
     private String extractDownloadPath(String str) throws PlayApiException
     {
         Pattern p = Pattern.compile("(?i)https?://[^:]+");
@@ -160,6 +202,12 @@ public class PlayApi
         return m.group(0);
     }
     
+    /**
+     * Manually extract the market da from the protobuf response
+     * 
+     * @param str
+     * @return
+     */
     private String extractMarketDA(String str)
     {
         boolean capture = false;
@@ -179,6 +227,10 @@ public class PlayApi
         return sb.toString();
     }
     
+    /**
+     * @param map
+     * @return
+     */
     private int getSimOperatorLength(Map<String, Object> map)
     {
         Serializer tmpSerializer = new Serializer();

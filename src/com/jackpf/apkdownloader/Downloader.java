@@ -11,15 +11,28 @@ import com.jackpf.apkdownloader.Entity.App;
 
 public class Downloader
 {
+    /**
+     * Context
+     */
     private Context context;
     
+    /**
+     * Constructor
+     * 
+     * @param context
+     */
     public Downloader(Context context)
     {
         this.context = context;
     }
     
+    /**
+     * Download an app
+     * 
+     * @param app
+     */
     @SuppressLint("NewApi")
-    public void download(App app, String authToken)
+    public void download(App app)
     {
         DownloadManager dm = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
         
