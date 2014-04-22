@@ -111,6 +111,10 @@ public class PlayApi
             );
             
             HttpResponse response = client.execute(post);
+            
+            if (response.getStatusLine().getStatusCode() != 200) {
+                throw new PlayApiException(String.format("Server responded with status code %d", response.getStatusLine().getStatusCode()));
+            }
     
             byte[] bin = EntityUtils.toByteArray(response.getEntity());
             

@@ -17,5 +17,6 @@
     <string name="pref_password_summary">Your google login password</string>
     
     <string name="error_unrecognized_login">Unable to authenticate - please enter valid credentials in settings</string>
-
+	<string name="error_api_exception">Api exception: %s</string>
+    
 </resources>

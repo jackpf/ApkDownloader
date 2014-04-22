@@ -98,6 +98,8 @@ public class Authenticator
             return Long.toHexString(Long.parseLong(c.getString(1)));
         } catch (NumberFormatException e) {
             return null;
+        } finally {
+            c.close();
         }
     }
 }
