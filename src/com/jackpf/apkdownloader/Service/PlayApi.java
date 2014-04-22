@@ -23,9 +23,7 @@ import com.jackpf.apkdownloader.Exception.PlayApiException;
 
 public class PlayApi
 {
-    private String authToken;
-    
-    private String deviceId;
+    private Authenticator authenticator;
     
     private final int       SDK_VERSION            = 8013013;
     private final String    DEVICE_SDK_AND_VERSION = "mako:18";
@@ -55,10 +53,9 @@ public class PlayApi
         SEP_15  = new byte[]{10}
     ;
     
-    public PlayApi(String authToken, String deviceId)
+    public PlayApi(Authenticator authenticator)
     {
-        this.authToken = authToken;
-        this.deviceId = deviceId;
+        this.authenticator = authenticator;
     }
     
     public App getApp(String packageName) throws PlayApiException
@@ -109,13 +106,13 @@ public class PlayApi
         Serializer serializer = new Serializer();
         Map<String, Object> map = new LinkedHashMap<String, Object>();
         
-        map.put("authToken", authToken);
+        map.put("authToken", authenticator.getToken());
         map.put("SEP_1", SEP_1);
         map.put("isSecure", true);
         map.put("SEP_2", SEP_2);
         map.put("sdkVersion", SDK_VERSION);
         map.put("SEP_3", SEP_3);
-        map.put("deviceId", deviceId);
+        map.put("deviceId", authenticator.getGsfAndroidId());
         map.put("SEP_4", SEP_4);
         map.put("deviceAndSdkVersion", DEVICE_SDK_AND_VERSION);
         map.put("SEP_5", SEP_5);

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.jackpf.apkdownloader.Request.DownloadRequest;
+import com.jackpf.apkdownloader.Service.Authenticator;
 import com.jackpf.apkdownloader.UI.MainActivityUI;
 
 public class MainActivity extends Activity
@@ -29,6 +30,15 @@ public class MainActivity extends Activity
     public void download(View view)
     {
         String appId = ((EditText) findViewById(R.id.app_id)).getText().toString();
-        new NetworkThread(this, new DownloadRequest(), new MainActivityUI(this)).execute(new Downloader(this), appId);
+        
+        new NetworkThread(
+            this,
+            new DownloadRequest(),
+            new MainActivityUI(this)
+        ).execute(
+            new Authenticator(this),
+            new Downloader(this),
+            appId
+        );
     }
 }

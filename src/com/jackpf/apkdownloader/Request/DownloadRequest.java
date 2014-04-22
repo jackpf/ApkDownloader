@@ -2,32 +2,39 @@ package com.jackpf.apkdownloader.Request;
 
 import java.security.InvalidParameterException;
 
-import com.gc.android.market.api.MarketSession;
 import com.jackpf.apkdownloader.Downloader;
 import com.jackpf.apkdownloader.Entity.App;
 import com.jackpf.apkdownloader.Entity.Response;
 import com.jackpf.apkdownloader.Model.RequestInterface;
+import com.jackpf.apkdownloader.Service.Authenticator;
 import com.jackpf.apkdownloader.Service.PlayApi;
 
 public class DownloadRequest extends RequestInterface
 {
+    private Object getParam(Object[] params, int i, Class<?> c)
+    {
+        if (params.length < i + 1) {
+            throw new InvalidParameterException("Not enough arguments");
+        }
+        
+        Object o = params[i];
+        
+        if (!o.getClass().equals(c)) {
+            throw new InvalidParameterException(String.format("Expected argument of type %s but got %s", o.getClass(), c));
+        }
+        
+        return o;
+    }
+    
     @Override
     public Response call(Object ...params)
     {
         try {
-            if (params.length < 1 || !(params[0] instanceof Downloader)) {
-                throw new InvalidParameterException("No download manager");
-            }
+            Authenticator authenticator = (Authenticator) getParam(params, 0, Authenticator.class);
+            Downloader downloader = (Downloader) getParam(params, 1, Downloader.class);
+            String appId = (String) getParam(params, 2, String.class);
             
-            Downloader downloader = (Downloader) params[0];
-
-            if (params.length < 2 || !(params[1] instanceof String)) {
-                throw new InvalidParameterException("No app id");
-            }
-            
-            String appId = (String) params[1];
-            
-            download(downloader, appId);
+            download(authenticator, downloader, appId);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -35,14 +42,12 @@ public class DownloadRequest extends RequestInterface
         return null;
     }
     
-    private void download(Downloader downloader, String appId) throws Exception
+    private void download(Authenticator authenticator, Downloader downloader, String appId) throws Exception
     {
-        MarketSession session = new MarketSession(true);
-        session.login("jack.philip.farrelly@gmail.com", "hgdu owsf ejhy skjf", "129596a2a13cb718");
+        PlayApi api = new PlayApi(authenticator);
         
-        PlayApi api = new PlayApi(session.getAuthSubToken(), "3b718fcb3fa05cba");
         App app = api.getApp(appId);
-        System.err.println("logged in");
-        downloader.download(app, session.getAuthSubToken());
+        
+        downloader.download(app, authenticator.getToken());
     }
 }
