@@ -21,10 +21,8 @@
         android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:ems="10" >
-
-        <requestFocus />
-    </EditText>
+        android:ems="10"
+        android:text="com.madfingergames.deadzone" />
 
     <Button
         android:id="@+id/button1"

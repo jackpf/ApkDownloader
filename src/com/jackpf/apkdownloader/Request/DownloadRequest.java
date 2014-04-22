@@ -9,7 +9,7 @@ import com.jackpf.apkdownloader.Entity.Response;
 import com.jackpf.apkdownloader.Model.RequestInterface;
 import com.jackpf.apkdownloader.Service.PlayApi;
 
-public class TestRequest extends RequestInterface
+public class DownloadRequest extends RequestInterface
 {
     @Override
     public Response call(Object ...params)
@@ -27,7 +27,7 @@ public class TestRequest extends RequestInterface
             
             String appId = (String) params[1];
             
-            search(downloader, appId);
+            download(downloader, appId);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -35,14 +35,14 @@ public class TestRequest extends RequestInterface
         return null;
     }
     
-    private void search(Downloader downloader, String appId) throws Exception
+    private void download(Downloader downloader, String appId) throws Exception
     {
         MarketSession session = new MarketSession(true);
-        session.login("jack.philip.farrelly@gmail.com", "bjfg yjdr giqc pvkn", "129596a2a13cb718");
+        session.login("jack.philip.farrelly@gmail.com", "hgdu owsf ejhy skjf", "129596a2a13cb718");
         
         PlayApi api = new PlayApi(session.getAuthSubToken(), "3b718fcb3fa05cba");
         App app = api.getApp(appId);
-        
+        System.err.println("logged in");
         downloader.download(app, session.getAuthSubToken());
     }
 }

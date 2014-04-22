@@ -28,6 +28,7 @@ public class Downloader
             .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, app.getAppId() + ".apk")
         ;
         request.addRequestHeader("Cookie", "MarketDA=" + app.getMarketDA());// + ";ANDROIDSECURE=" + authToken);
+        System.err.println(request);
         dm.enqueue(request);
     }
 }
