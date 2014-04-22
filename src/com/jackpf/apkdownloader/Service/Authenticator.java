@@ -35,18 +35,21 @@ public class Authenticator
     
     public String getGsfAndroidId() 
     {
-        Uri URI = Uri.parse("content://com.google.android.gsf.gservices");
-        String ID_KEY = "android_id";
-        String params[] = {ID_KEY};
-        Cursor c = context.getContentResolver().query(URI, null, null, params, null);
-        if (!c.moveToFirst() || c.getColumnCount() < 2)
+        Cursor c = context.getContentResolver().query(
+            Uri.parse("content://com.google.android.gsf.gservices"),
+            null,
+            null,
+            new String[]{"android_id"},
+            null
+        );
+        
+        if (!c.moveToFirst() || c.getColumnCount() < 2) {
             return null;
-        try 
-        {
+        }
+        
+        try {
             return Long.toHexString(Long.parseLong(c.getString(1)));
-        } 
-        catch (NumberFormatException e) 
-        {
+        } catch (NumberFormatException e) {
             return null;
         }
     }
