@@ -1,5 +1,6 @@
 package com.jackpf.apkdownloader;
 
+import android.annotation.SuppressLint;
 import android.app.DownloadManager;
 import android.app.DownloadManager.Request;
 import android.content.Context;
@@ -17,6 +18,7 @@ public class Downloader
         this.context = context;
     }
     
+    @SuppressLint("NewApi")
     public void download(App app, String authToken)
     {
         DownloadManager dm = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
@@ -28,8 +30,11 @@ public class Downloader
             .setDescription("App downloading...")
             .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, app.getAppId() + ".apk")
             .addRequestHeader("Cookie", "MarketDA=" + app.getMarketDA()) // + ";ANDROIDSECURE=" + authToken)
-            .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE | DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
         ;
+        
+        if (android.os.Build.VERSION.SDK_INT >= 11) {
+            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE | DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        }
         
         dm.enqueue(request);
     }
