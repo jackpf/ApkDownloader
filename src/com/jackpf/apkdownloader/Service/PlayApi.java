@@ -19,6 +19,7 @@ import org.apache.http.util.EntityUtils;
 import android.util.Base64;
 
 import com.jackpf.apkdownloader.Entity.App;
+import com.jackpf.apkdownloader.Exception.AuthenticationException;
 import com.jackpf.apkdownloader.Exception.PlayApiException;
 
 public class PlayApi
@@ -87,7 +88,7 @@ public class PlayApi
      * @return
      * @throws PlayApiException
      */
-    public App getApp(String packageName) throws PlayApiException
+    public App getApp(String packageName) throws PlayApiException, AuthenticationException
     {
         Serializer.Bytes protoBuf = buildProtoBuf(packageName).getBytes();
         
@@ -136,7 +137,7 @@ public class PlayApi
      * @param packageName
      * @return
      */
-    private Serializer buildProtoBuf(String packageName)
+    private Serializer buildProtoBuf(String packageName) throws AuthenticationException
     {
         Serializer serializer = new Serializer();
         Map<String, Object> map = new LinkedHashMap<String, Object>();

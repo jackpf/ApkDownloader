@@ -7,8 +7,10 @@ import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.provider.Settings.Secure;
 
+import com.gc.android.market.api.LoginException;
 import com.gc.android.market.api.MarketSession;
 import com.jackpf.apkdownloader.R;
+import com.jackpf.apkdownloader.Exception.AuthenticationException;
 
 public class Authenticator
 {
@@ -45,13 +47,19 @@ public class Authenticator
     /**
      * Get authentication token
      * 
+     * @throws AuthenticationException
      * @return
      */
-    public String getToken()
+    public String getToken() throws AuthenticationException
     {
         if (session == null) {
-            MarketSession session = new MarketSession(true);
-            session.login(email, password, getGsfId());
+            session = new MarketSession(true);
+            
+            try {
+                session.login(email, password, getGsfId());
+            } catch (LoginException e) {
+                throw new AuthenticationException(e.getMessage());
+            }
         }
         
         return session.getAuthSubToken();

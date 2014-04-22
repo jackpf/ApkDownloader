@@ -27,6 +27,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+			android:name=".PreferencesActivity"
+			android:label="@string/activity_preferences_title"
+			android:noHistory="true" />
     </application>
 
 </manifest>

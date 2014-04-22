@@ -28,11 +28,12 @@ public abstract class RequestInterface
     /**
      * Get a parameter for a given index and do some type checking
      * 
+     * @param params
      * @param i
      * @param c
      * @return
      */
-    protected Object getParam(int i, Class<?> c)
+    protected Object getParam(Object[] params, int i, Class<?> c)
     {
         if (params.length < i + 1) {
             throw new InvalidParameterException("Not enough arguments");

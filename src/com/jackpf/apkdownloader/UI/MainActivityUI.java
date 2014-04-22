@@ -1,7 +1,9 @@
 package com.jackpf.apkdownloader.UI;
 
 import android.content.Context;
+import android.widget.Toast;
 
+import com.jackpf.apkdownloader.R;
 import com.jackpf.apkdownloader.Model.UIInterface;
 
 public class MainActivityUI extends UIInterface
@@ -28,6 +30,6 @@ public class MainActivityUI extends UIInterface
     
     public void error(Exception e)
     {
-        
+        Toast.makeText(context.getApplicationContext(), context.getString(R.string.error_unrecognized_login), Toast.LENGTH_LONG).show();
     }
 }
