@@ -19,6 +19,12 @@
 		    android:summary="@string/pref_password_summary"
 		    android:inputType="textPassword" />
         
+        <EditTextPreference 
+		    android:key="@string/pref_gsfid_key"
+		    android:title="@string/pref_gsfid_title"
+		    android:defaultValue="@string/pref_gsfid_default"
+		    android:summary="@string/pref_gsfid_summary" />
+        
     </PreferenceCategory>
 
 </PreferenceScreen>

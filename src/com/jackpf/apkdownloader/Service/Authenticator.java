@@ -25,6 +25,11 @@ public class Authenticator
     private MarketSession session;
     
     /**
+     * Preferences instance
+     */
+    private SharedPreferences prefs;
+    
+    /**
      * Google login credentials
      */
     private String email, password;
@@ -38,7 +43,7 @@ public class Authenticator
     {
         this.context = context;
         
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs = PreferenceManager.getDefaultSharedPreferences(context);
         
         email = prefs.getString(context.getString(R.string.pref_email_key), context.getString(R.string.pref_email_default));
         password = prefs.getString(context.getString(R.string.pref_password_key), context.getString(R.string.pref_password_default));
@@ -82,6 +87,14 @@ public class Authenticator
      */
     public String getGsfId() 
     {
+        // Return preference if set
+        String gsfid = prefs.getString(context.getString(R.string.pref_gsfid_key), context.getString(R.string.pref_gsfid_default));
+        
+        if (!gsfid.equals("")) {
+            return gsfid;
+        }
+        
+        // Otherwise attempt to get it from google services
         Cursor c = context.getContentResolver().query(
             Uri.parse("content://com.google.android.gsf.gservices"),
             null,
