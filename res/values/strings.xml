@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ApkDownloader</string>
+    <string name="app_name">Apk Downloader</string>
     <string name="action_settings">Settings</string>
     
     <string name="activity_preferences_title">Preferences</string>
@@ -22,5 +22,6 @@
     
     <string name="error_unrecognized_login">Unable to authenticate - please enter valid credentials in settings</string>
 	<string name="error_api_exception">Api exception: %s</string>
+	<string name="error_empty_id">Please enter a valid application ID</string>
 	
 </resources>

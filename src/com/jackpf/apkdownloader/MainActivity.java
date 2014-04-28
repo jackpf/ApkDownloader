@@ -3,19 +3,20 @@ package com.jackpf.apkdownloader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 import com.jackpf.apkdownloader.Request.DownloadRequest;
 import com.jackpf.apkdownloader.Service.Authenticator;
 import com.jackpf.apkdownloader.UI.MainActivityUI;
 
-public class MainActivity extends Activity
+public class MainActivity extends SherlockActivity
 {
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -50,7 +51,7 @@ public class MainActivity extends Activity
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        getMenuInflater().inflate(R.menu.main, menu);
+        getSupportMenuInflater().inflate(R.menu.main, menu);
         
         return true;
     }
@@ -73,14 +74,18 @@ public class MainActivity extends Activity
     {
         String appId = ((EditText) findViewById(R.id.app_id)).getText().toString();
         
-        new NetworkThread(
-            this,
-            new DownloadRequest(),
-            new MainActivityUI(this)
-        ).execute(
-            new Authenticator(this),
-            new Downloader(this),
-            appId
-        );
+        if (!appId.equals("")) {
+            new NetworkThread(
+                this,
+                new DownloadRequest(),
+                new MainActivityUI(this)
+            ).execute(
+                new Authenticator(this),
+                new Downloader(this),
+                appId
+            );
+        } else {
+            Toast.makeText(getApplicationContext(), getString(R.string.error_empty_id), Toast.LENGTH_LONG).show();
+        }
     }
 }
