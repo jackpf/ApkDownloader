@@ -5,7 +5,6 @@ import android.app.DownloadManager;
 import android.app.DownloadManager.Request;
 import android.content.Context;
 import android.net.Uri;
-import android.os.Environment;
 
 import com.jackpf.apkdownloader.Entity.App;
 
@@ -15,6 +14,11 @@ public class Downloader
      * Context
      */
     private Context context;
+    
+    /**
+     * Download dir
+     */
+    public static final String DOWNLOAD_DIR = "ApkDownloads";
     
     /**
      * Constructor
@@ -41,7 +45,7 @@ public class Downloader
             .setAllowedOverRoaming(true)
             .setTitle(app.getAppId())
             .setDescription("App downloading...")
-            .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, app.getAppId() + ".apk")
+            .setDestinationInExternalPublicDir(DOWNLOAD_DIR, app.getAppId() + ".apk")
             .addRequestHeader("Cookie", "MarketDA=" + app.getMarketDA()) // + ";ANDROIDSECURE=" + authToken)
         ;
         

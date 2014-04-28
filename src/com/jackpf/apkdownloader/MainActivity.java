@@ -31,23 +31,6 @@ public class MainActivity extends SherlockActivity
         }
     }
 
-    protected String extractPackageId(String path)
-    {
-        Pattern p = Pattern.compile("id=(.*?)($|&)");
-        Matcher m = p.matcher(path);
-        
-        if (m.find()) {
-            return m.group(1);
-        } else {
-            return null;
-        }
-    }
-    
-    protected void setAppId(String id)
-    {
-        ((EditText) findViewById(R.id.app_id)).setText(id);
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -69,7 +52,40 @@ public class MainActivity extends SherlockActivity
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    /**
+     * Get the package id from a market url
+     * 
+     * @param path
+     * @return
+     */
+    protected String extractPackageId(String path)
+    {
+        Pattern p = Pattern.compile("id=(.*?)($|&)");
+        Matcher m = p.matcher(path);
+        
+        if (m.find()) {
+            return m.group(1);
+        } else {
+            return null;
+        }
+    }
     
+    /**
+     * Prepopulate app id edit text
+     * 
+     * @param id
+     */
+    protected void setAppId(String id)
+    {
+        ((EditText) findViewById(R.id.app_id)).setText(id);
+    }
+    
+    /**
+     * Download button click
+     * 
+     * @param view
+     */
     public void download(View view)
     {
         String appId = ((EditText) findViewById(R.id.app_id)).getText().toString();
