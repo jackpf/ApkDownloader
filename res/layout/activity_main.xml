@@ -19,26 +19,25 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.4"
+            android:layout_weight="0.3"
             android:ems="10"
-            android:text="Package ID:"
+            android:text="Package:"
             android:textSize="20sp" />
 
 	    <EditText
 	        android:id="@+id/app_id"
 	        android:layout_width="0dp"
 	        android:layout_height="wrap_content"
-		    android:layout_weight="0.6"
+		    android:layout_weight="0.5"
 	    	android:layout_gravity="center_horizontal" />
+
+	    <Button
+	        android:layout_width="0dp"
+	        android:layout_height="36dp"
+		    android:layout_weight="0.2"
+	        android:onClick="download"
+	        android:text="DL" />
     
     </LinearLayout>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:onClick="download"
-        android:text="Download"
-    	android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

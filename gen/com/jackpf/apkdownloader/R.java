@@ -948,6 +948,7 @@ containing a value of this type.
         public static final int abs__textButton=0x7f050013;
         public static final int abs__title=0x7f05001b;
         public static final int abs__up=0x7f05000b;
+        public static final int action_help=0x7f050034;
         public static final int action_settings=0x7f050033;
         public static final int app_id=0x7f050032;
         public static final int disableHome=0x7f050009;
@@ -1034,25 +1035,26 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abs__shareactionprovider_share_with_application=0x7f0a0007;
+        public static final int action_help=0x7f0a000f;
         public static final int action_settings=0x7f0a000e;
-        public static final int activity_preferences_title=0x7f0a000f;
+        public static final int activity_preferences_title=0x7f0a0010;
         public static final int app_name=0x7f0a000d;
-        public static final int error_api_exception=0x7f0a001e;
-        public static final int error_empty_id=0x7f0a001f;
-        public static final int error_unrecognized_login=0x7f0a001d;
-        public static final int pref_auth_title=0x7f0a0010;
-        public static final int pref_email_default=0x7f0a0013;
-        public static final int pref_email_key=0x7f0a0011;
-        public static final int pref_email_summary=0x7f0a0014;
-        public static final int pref_email_title=0x7f0a0012;
-        public static final int pref_gsfid_default=0x7f0a001b;
-        public static final int pref_gsfid_key=0x7f0a0019;
-        public static final int pref_gsfid_summary=0x7f0a001c;
-        public static final int pref_gsfid_title=0x7f0a001a;
-        public static final int pref_password_default=0x7f0a0017;
-        public static final int pref_password_key=0x7f0a0015;
-        public static final int pref_password_summary=0x7f0a0018;
-        public static final int pref_password_title=0x7f0a0016;
+        public static final int error_api_exception=0x7f0a001f;
+        public static final int error_empty_id=0x7f0a0020;
+        public static final int error_unrecognized_login=0x7f0a001e;
+        public static final int pref_auth_title=0x7f0a0011;
+        public static final int pref_email_default=0x7f0a0014;
+        public static final int pref_email_key=0x7f0a0012;
+        public static final int pref_email_summary=0x7f0a0015;
+        public static final int pref_email_title=0x7f0a0013;
+        public static final int pref_gsfid_default=0x7f0a001c;
+        public static final int pref_gsfid_key=0x7f0a001a;
+        public static final int pref_gsfid_summary=0x7f0a001d;
+        public static final int pref_gsfid_title=0x7f0a001b;
+        public static final int pref_password_default=0x7f0a0018;
+        public static final int pref_password_key=0x7f0a0016;
+        public static final int pref_password_summary=0x7f0a0019;
+        public static final int pref_password_title=0x7f0a0017;
     }
     public static final class style {
         public static final int Sherlock___TextAppearance_Small=0x7f0b0046;
