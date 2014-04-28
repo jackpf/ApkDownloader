@@ -52,7 +52,6 @@ public final class R {
         public static final int pref_password_key=0x7f060008;
         public static final int pref_password_summary=0x7f06000b;
         public static final int pref_password_title=0x7f060009;
-        public static final int text_instructions=0x7f060012;
     }
     public static final class style {
         /** 

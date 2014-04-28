@@ -1,5 +1,8 @@
 package com.jackpf.apkdownloader;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +22,29 @@ public class MainActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        if (Intent.ACTION_VIEW.equals(getIntent().getAction()) && getIntent().getDataString() != null) {
+            setAppId(extractPackageId(getIntent().getDataString()));
+        } else if(Intent.ACTION_SEND.equals(getIntent().getAction()) && getIntent().getExtras().containsKey(Intent.EXTRA_TEXT)) {
+            setAppId(extractPackageId(getIntent().getExtras().getString(Intent.EXTRA_TEXT)));
+        }
+    }
+
+    protected String extractPackageId(String path)
+    {
+        Pattern p = Pattern.compile("id=(.*?)($|&)");
+        Matcher m = p.matcher(path);
+        
+        if (m.find()) {
+            return m.group(1);
+        } else {
+            return null;
+        }
+    }
+    
+    protected void setAppId(String id)
+    {
+        ((EditText) findViewById(R.id.app_id)).setText(id);
     }
 
     @Override
