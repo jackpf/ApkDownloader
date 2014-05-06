@@ -14,7 +14,8 @@
 	    android:layout_height="wrap_content"
 	    android:orientation="horizontal"
         android:layout_marginTop="20dp"
-        android:gravity="center_vertical" >
+        android:gravity="center_vertical"
+        android:layout_marginBottom="20sp" >
 	    
         <TextView
             android:layout_width="0dp"
@@ -22,7 +23,8 @@
             android:layout_weight="0.3"
             android:ems="10"
             android:text="Package:"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:paddingBottom="20sp" />
 
 	    <EditText
 	        android:id="@+id/app_id"
@@ -39,5 +41,22 @@
 	        android:text="DL" />
     
     </LinearLayout>
+	    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="Downloads"
+        android:textSize="20sp"
+        android:paddingBottom="10sp" />
+    
+    <ListView
+		android:id="@+id/downloads"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:divider="@android:color/transparent"
+		android:choiceMode="singleChoice" 
+		android:cacheColorHint="@android:color/transparent"
+		android:scrollbars="none" />
 
 </LinearLayout>

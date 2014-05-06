@@ -43,7 +43,7 @@ public abstract class UIInterface
      * Initialise UI
      * Should be called in activity onCreate
      */
-    public abstract void initialise();
+    public abstract void initialise(Object ...params);
     
     /**
      * Called pre update from thread

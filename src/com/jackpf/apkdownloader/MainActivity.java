@@ -12,22 +12,41 @@ import android.widget.Toast;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.jackpf.apkdownloader.Model.UIInterface;
 import com.jackpf.apkdownloader.Request.DownloadRequest;
 import com.jackpf.apkdownloader.Service.Authenticator;
 import com.jackpf.apkdownloader.UI.MainActivityUI;
 
 public class MainActivity extends SherlockActivity
 {
+    private UIInterface ui;
+    private NetworkThread thread;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
+        ui = new MainActivityUI(this);
+        
+        String appId = null;
         if (Intent.ACTION_VIEW.equals(getIntent().getAction()) && getIntent().getDataString() != null) {
-            setAppId(extractPackageId(getIntent().getDataString()));
+            appId = extractPackageId(getIntent().getDataString());
         } else if(Intent.ACTION_SEND.equals(getIntent().getAction()) && getIntent().getExtras().containsKey(Intent.EXTRA_TEXT)) {
-            setAppId(extractPackageId(getIntent().getExtras().getString(Intent.EXTRA_TEXT)));
+            appId = extractPackageId(getIntent().getExtras().getString(Intent.EXTRA_TEXT));
+        }
+        
+        ui.initialise(appId);
+    }
+    
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+        
+        if (thread instanceof NetworkThread) {
+            thread.cancel(true);
         }
     }
 
@@ -72,16 +91,6 @@ public class MainActivity extends SherlockActivity
     }
     
     /**
-     * Prepopulate app id edit text
-     * 
-     * @param id
-     */
-    protected void setAppId(String id)
-    {
-        ((EditText) findViewById(R.id.app_id)).setText(id);
-    }
-    
-    /**
      * Download button click
      * 
      * @param view
@@ -91,13 +100,18 @@ public class MainActivity extends SherlockActivity
         String appId = ((EditText) findViewById(R.id.app_id)).getText().toString();
         
         if (!appId.equals("")) {
-            new NetworkThread(
+            if (thread instanceof NetworkThread) {
+                thread.cancel(true);
+            }
+            
+            thread = new NetworkThread(
                 this,
                 new DownloadRequest(),
-                new MainActivityUI(this)
-            ).execute(
+                ui
+            );
+            thread.execute(
                 new Authenticator(this),
-                new Downloader(this),
+                new Downloader(this, ui),
                 appId
             );
         } else {
