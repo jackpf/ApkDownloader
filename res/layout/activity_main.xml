@@ -7,7 +7,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/main">
     
     <LinearLayout
 		android:layout_width="fill_parent"
@@ -23,22 +24,22 @@
             android:layout_weight="0.3"
             android:ems="10"
             android:text="Package:"
-            android:textSize="20sp"
-            android:paddingBottom="20sp" />
+            android:textSize="20sp" />
 
 	    <EditText
 	        android:id="@+id/app_id"
 	        android:layout_width="0dp"
 	        android:layout_height="wrap_content"
 		    android:layout_weight="0.5"
-	    	android:layout_gravity="center_horizontal" />
+	    	android:layout_gravity="center_horizontal"
+	    	android:singleLine="true" />
 
 	    <Button
 	        android:layout_width="0dp"
 	        android:layout_height="36dp"
 		    android:layout_weight="0.2"
 	        android:onClick="download"
-	        android:text="DL" />
+	        android:text="D/L" />
     
     </LinearLayout>
 	    

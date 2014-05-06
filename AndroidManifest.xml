@@ -40,6 +40,10 @@
         </activity>
         
         <activity
+            android:name="com.jackpf.apkdownloader.HelpActivity"
+            android:label="@string/activity_help_title" />
+        
+        <activity
 			android:name=".PreferencesActivity"
 			android:label="@string/activity_preferences_title"
 			android:noHistory="true" />

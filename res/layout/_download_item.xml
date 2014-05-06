@@ -6,7 +6,9 @@
 	android:paddingTop="5sp"
 	android:paddingBottom="5sp"
 	android:paddingLeft="10sp"
-	android:paddingRight="10sp">
+	android:paddingRight="10sp"
+    android:background="@drawable/arraylist_selector"
+    android:gravity="center_vertical">
 	
     <ImageView
 	    android:layout_width="32sp"
@@ -14,7 +16,7 @@
 		android:id="@+id/package_icon" />
 
 	<TextView
-	    android:layout_width="fill_parent"
+	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 		android:id="@+id/package_name"
 		android:ellipsize="end"

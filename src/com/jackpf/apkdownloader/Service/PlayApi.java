@@ -201,7 +201,7 @@ public class PlayApi
         Matcher m = p.matcher(str);
         
         if (!m.find()) {
-            throw new PlayApiException("Unable to extract download link");
+            throw new PlayApiException("App not found");
         }
         
         return m.group(0);

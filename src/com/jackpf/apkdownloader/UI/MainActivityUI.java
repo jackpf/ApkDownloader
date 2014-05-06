@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -30,7 +29,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.ActionMode;
+import com.actionbarsherlock.view.MenuItem;
 import com.jackpf.apkdownloader.Downloader;
+import com.jackpf.apkdownloader.Helpers;
 import com.jackpf.apkdownloader.R;
 import com.jackpf.apkdownloader.Exception.AuthenticationException;
 import com.jackpf.apkdownloader.Exception.PlayApiException;
@@ -38,7 +40,7 @@ import com.jackpf.apkdownloader.Model.UIInterface;
 
 public class MainActivityUI extends UIInterface
 {
-    private Activity activity;
+    private SherlockActivity activity;
     
     private ArrayAdapter<ArrayList<File>> adapter;
     
@@ -57,7 +59,7 @@ public class MainActivityUI extends UIInterface
             ((EditText) activity.findViewById(R.id.app_id)).setText((String) params[0]);
         }
         
-        ListView downloadsList = (ListView) activity.findViewById(R.id.downloads);
+        final ListView downloadsList = (ListView) activity.findViewById(R.id.downloads);
         
         File dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + Downloader.DOWNLOAD_DIR);
         if (dir.listFiles() != null) {
@@ -71,6 +73,7 @@ public class MainActivityUI extends UIInterface
             downloadsList.setAdapter(adapter);
             
             downloadsList.setOnItemClickListener(new OnItemClickListener() {
+                @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     File file = (File) adapter.getItem(position);
                     
@@ -80,8 +83,28 @@ public class MainActivityUI extends UIInterface
                     context.startActivity(intent);
                 }
             });
+            
+            Helpers.addContextMenu(downloadsList, R.menu._downloads_context_menu, new Helpers.ContextMenuCallback() {
+                @Override
+                public ActionMode startActionMode(ActionMode.Callback callback) {
+                    return activity.startActionMode(callback);
+                }
+                
+                @Override
+                public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                    File file = (File) adapter.getItem(downloadsList.getCheckedItemPosition());
+                    switch (item.getItemId()) {
+                        case R.id.action_edit:
+                            return true;
+                        case R.id.action_delete:
+                            return true;
+                    }
+                    
+                    return false;
+                }
+            });
         //} else {
-            adapter.notifyDataSetChanged();
+        //    adapter.notifyDataSetChanged();
         //}
     }
     

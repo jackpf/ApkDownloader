@@ -28,6 +28,8 @@ public class MainActivity extends SherlockActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
+        PreferencesActivity.setDefaults(this);
+        
         ui = new MainActivityUI(this);
         
         String appId = null;
@@ -61,9 +63,16 @@ public class MainActivity extends SherlockActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
+        Intent intent;
+        
         switch (item.getItemId()) {
             case R.id.action_settings:
-                Intent intent = new Intent(this, PreferencesActivity.class);
+                intent = new Intent(this, PreferencesActivity.class);
+                startActivity(intent);
+                
+                return true;
+            case R.id.action_help:
+                intent = new Intent(this, HelpActivity.class);
                 startActivity(intent);
                 
                 return true;
