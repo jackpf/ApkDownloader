@@ -61,7 +61,13 @@ public class Authenticator
             session = new MarketSession(true);
             
             try {
-                session.login(email, password, getGsfId());
+                String gsfid = getGsfId();
+                
+                if (gsfid == null) {
+                    throw new AuthenticationException("No gsfid, please enter one in settings");
+                }
+                
+                session.login(email, password, gsfid);
             } catch (LoginException e) {
                 throw new AuthenticationException(e.getMessage());
             }
@@ -103,7 +109,7 @@ public class Authenticator
             null
         );
         
-        if (!c.moveToFirst() || c.getColumnCount() < 2) {
+        if (c == null || !c.moveToFirst() || c.getColumnCount() < 2) {
             return null;
         }
         
