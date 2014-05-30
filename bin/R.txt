@@ -352,10 +352,14 @@ int string action_settings 0x7f0a000e
 int string activity_help_title 0x7f0a0011
 int string activity_preferences_title 0x7f0a0010
 int string app_name 0x7f0a000d
-int string error_api_exception 0x7f0a0022
-int string error_empty_id 0x7f0a0023
-int string error_unrecognized_login 0x7f0a0021
+int string error_api_exception 0x7f0a0027
+int string error_empty_id 0x7f0a0028
+int string error_unrecognized_login 0x7f0a0026
 int string pref_auth_title 0x7f0a0014
+int string pref_autoinstall_default 0x7f0a0024
+int string pref_autoinstall_key 0x7f0a0022
+int string pref_autoinstall_summary 0x7f0a0025
+int string pref_autoinstall_title 0x7f0a0023
 int string pref_email_default 0x7f0a0017
 int string pref_email_key 0x7f0a0015
 int string pref_email_summary 0x7f0a0018
@@ -364,6 +368,7 @@ int string pref_gsfid_default 0x7f0a001f
 int string pref_gsfid_key 0x7f0a001d
 int string pref_gsfid_summary 0x7f0a0020
 int string pref_gsfid_title 0x7f0a001e
+int string pref_options_title 0x7f0a0021
 int string pref_password_default 0x7f0a001b
 int string pref_password_key 0x7f0a0019
 int string pref_password_summary 0x7f0a001c

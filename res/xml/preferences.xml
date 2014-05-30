@@ -27,4 +27,15 @@
         
     </PreferenceCategory>
 
+    <PreferenceCategory 
+        android:title="@string/pref_options_title">
+    	
+        <CheckBoxPreference
+            android:key="@string/pref_autoinstall_key"
+		    android:title="@string/pref_autoinstall_title"
+		    android:defaultValue="@string/pref_autoinstall_default"
+		    android:summary="@string/pref_autoinstall_summary" />
+        
+    </PreferenceCategory>
+
 </PreferenceScreen>

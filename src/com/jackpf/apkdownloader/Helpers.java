@@ -1,5 +1,10 @@
 package com.jackpf.apkdownloader;
 
+import java.io.File;
+
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
@@ -76,5 +81,21 @@ public class Helpers
     {
         public ActionMode startActionMode(ActionMode.Callback callback);
         public boolean onActionItemClicked(ActionMode mode, MenuItem item);
+    }
+    
+    /**
+     * Install a given file via package installer
+     * 
+     * @param context
+     * @param file
+     */
+    public static void installFile(Context context, File file)
+    {
+        if (file != null) {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+        }
     }
 }

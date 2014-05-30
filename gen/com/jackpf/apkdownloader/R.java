@@ -1053,10 +1053,14 @@ containing a value of this type.
         public static final int activity_help_title=0x7f0a0011;
         public static final int activity_preferences_title=0x7f0a0010;
         public static final int app_name=0x7f0a000d;
-        public static final int error_api_exception=0x7f0a0022;
-        public static final int error_empty_id=0x7f0a0023;
-        public static final int error_unrecognized_login=0x7f0a0021;
+        public static final int error_api_exception=0x7f0a0027;
+        public static final int error_empty_id=0x7f0a0028;
+        public static final int error_unrecognized_login=0x7f0a0026;
         public static final int pref_auth_title=0x7f0a0014;
+        public static final int pref_autoinstall_default=0x7f0a0024;
+        public static final int pref_autoinstall_key=0x7f0a0022;
+        public static final int pref_autoinstall_summary=0x7f0a0025;
+        public static final int pref_autoinstall_title=0x7f0a0023;
         public static final int pref_email_default=0x7f0a0017;
         public static final int pref_email_key=0x7f0a0015;
         public static final int pref_email_summary=0x7f0a0018;
@@ -1065,6 +1069,7 @@ containing a value of this type.
         public static final int pref_gsfid_key=0x7f0a001d;
         public static final int pref_gsfid_summary=0x7f0a0020;
         public static final int pref_gsfid_title=0x7f0a001e;
+        public static final int pref_options_title=0x7f0a0021;
         public static final int pref_password_default=0x7f0a001b;
         public static final int pref_password_key=0x7f0a0019;
         public static final int pref_password_summary=0x7f0a001c;
