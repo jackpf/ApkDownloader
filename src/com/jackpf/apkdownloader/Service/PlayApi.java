@@ -128,7 +128,7 @@ public class PlayApi
             while ((line = in.readLine()) != null) {
                 sb.append(line);
             }
-            
+            System.err.println(sb.toString());
             return new App(packageName, extractDownloadPath(sb.toString()), extractMarketDA(sb.toString()));
         } catch (Exception e) {
             throw new PlayApiException(e.getMessage());
@@ -225,7 +225,6 @@ public class PlayApi
             } else if (capture && b == 0x0c) {
                 break;
             } else if (capture) {
-                System.err.println(str.charAt(i));
                 sb.append(str.charAt(i));
             }
         }
