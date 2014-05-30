@@ -218,13 +218,14 @@ public class PlayApi
         boolean capture = false;
         StringBuilder sb = new StringBuilder();
         
-        for (int i = 0; i < str.length(); i++) {
+        for (int i = str.lastIndexOf(0x014); i < str.length(); i++) {
             byte b = (byte) str.charAt(i);
             if (b == 0x014) {
                 capture = true;
             } else if (capture && b == 0x0c) {
                 break;
             } else if (capture) {
+                System.err.println(str.charAt(i));
                 sb.append(str.charAt(i));
             }
         }
