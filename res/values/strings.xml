@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Apk Downloader</string>
+    <string name="app_name" translatable="false">Apk Downloader</string>
     
     <string name="action_settings">Settings</string>
     <string name="action_help">Help</string>
@@ -13,21 +13,21 @@
     <string name="action_delete">Delete</string>
 
     <string name="pref_auth_title">Authentication</string>
-    <string name="pref_email_key">email</string>
+    <string name="pref_email_key" translatable="false">email</string>
     <string name="pref_email_title">Email</string>
     <string name="pref_email_default" />
     <string name="pref_email_summary">Your google login email address</string>
-    <string name="pref_password_key">password</string>
+    <string name="pref_password_key" translatable="false">password</string>
     <string name="pref_password_title">Password</string>
     <string name="pref_password_default" />
     <string name="pref_password_summary">Your google login password</string>
-    <string name="pref_gsfid_key">gsfid</string>
+    <string name="pref_gsfid_key" translatable="false">gsfid</string>
     <string name="pref_gsfid_title">Google services framework ID</string>
     <string name="pref_gsfid_default" />
     <string name="pref_gsfid_summary">Google services framework ID (needs to be entered manually if you do not have google services installed, ignore otherwise)</string>
     
     <string name="pref_options_title">Options</string>
-    <string name="pref_autoinstall_key">autoinstall</string>
+    <string name="pref_autoinstall_key" translatable="false">autoinstall</string>
     <string name="pref_autoinstall_title">Auto install apps</string>
     <string name="pref_autoinstall_default">false</string>
     <string name="pref_autoinstall_summary">Automatically install apps once they\'ve been downloaded</string>
