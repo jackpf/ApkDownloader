@@ -23,10 +23,10 @@
     <string name="pref_autoinstall_summary">Automaticky inštalovať aplikácie po ich stiahnutí</string>
     
     <string name="error_unrecognized_login">Nemožno overiť - prosím, zadajte platné prihlasovacie údaje v nastaveniach</string>
-	  <string name="error_api_exception">API výnimka: %s</string>
-	  <string name="error_empty_id">prosím, zadajte platné ID aplikácie</string>
+    <string name="error_api_exception">API výnimka: %s</string>
+    <string name="error_empty_id">prosím, zadajte platné ID aplikácie</string>
 	  
-	  <string name="app_package">Balík:</string>
+    <string name="app_package">Balík:</string>
     <string name="download">Stiahnúť</string>
     <string name="downloads">Sťahovania</string>
     <string name="app_downloading">Sťahovanie aplikácie...</string>
