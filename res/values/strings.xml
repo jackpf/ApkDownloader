@@ -34,9 +34,9 @@
     
     <string name="error_unrecognized_login">Unable to authenticate - please enter valid credentials in settings</string>
 
-	<string name="error_api_exception">Api exception: %s</string>
-	<string name="error_empty_id">Please enter a valid application ID</string>
-	<string name="error_no_connection">No connection</string>
+    <string name="error_api_exception">Api exception: %s</string>
+    <string name="error_empty_id">Please enter a valid application ID</string>
+    <string name="error_no_connection">No connection</string>
     
     <string name="app_package">Package:</string>
     <string name="download">Download</string>
