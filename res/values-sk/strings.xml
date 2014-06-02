@@ -24,7 +24,8 @@
     
     <string name="error_unrecognized_login">Nemožno overiť - prosím, zadajte platné prihlasovacie údaje v nastaveniach</string>
     <string name="error_api_exception">API výnimka: %s</string>
-    <string name="error_empty_id">prosím, zadajte platné ID aplikácie</string>
+    <string name="error_empty_id">Prosím, zadajte platné ID aplikácie</string>
+    <string name="error_no_connection">Žiadne pripojenie</string>
 	  
     <string name="app_package">Balík:</string>
     <string name="download">Stiahnúť</string>
