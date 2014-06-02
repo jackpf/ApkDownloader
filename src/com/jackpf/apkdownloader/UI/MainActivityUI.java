@@ -2,7 +2,6 @@ package com.jackpf.apkdownloader.UI;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import android.content.Context;
@@ -42,7 +41,7 @@ public class MainActivityUI extends UIInterface
     
     private ArrayAdapter<ArrayList<File>> adapter;
     
-    private ArrayList<File> downloads;
+    private ArrayList<File> downloads = new ArrayList<File>();
     
     public MainActivityUI(Context context)
     {
@@ -53,7 +52,7 @@ public class MainActivityUI extends UIInterface
     
     public void initialise(Object ...params)
     {
-        if (params[0] instanceof String) {
+        if (params.length > 1 && params[0] instanceof String) {
             ((EditText) activity.findViewById(R.id.app_id)).setText((String) params[0]);
         }
         
@@ -61,12 +60,14 @@ public class MainActivityUI extends UIInterface
         
         File dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + Downloader.DOWNLOAD_DIR);
         if (dir.listFiles() != null) {
-            downloads = new ArrayList<File>(Arrays.asList(dir.listFiles()));
-        } else {
-            downloads = new ArrayList<File>();
+            for (File file : dir.listFiles()) {
+                if (!downloads.contains(file)) {
+                    downloads.add(file);
+                }
+            }
         }
         
-        //if (adapter == null) {
+        if (adapter == null) {
             adapter = new ArrayAdapter<ArrayList<File>>(context, downloads);
             downloadsList.setAdapter(adapter);
             
@@ -96,9 +97,9 @@ public class MainActivityUI extends UIInterface
                     return false;
                 }
             });
-        //} else {
-        //    adapter.notifyDataSetChanged();
-        //}
+        } else {
+            adapter.notifyDataSetChanged();
+        }
     }
     
     public void preUpdate()
@@ -128,32 +129,27 @@ public class MainActivityUI extends UIInterface
         private final T objects;
         private final LayoutInflater inflater;
 
-        public ArrayAdapter(Context context, T objects)
-        {
+        public ArrayAdapter(Context context, T objects) {
             this.context = context;
             this.objects = objects;
 
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
 
-        public Object getItem(int position)
-        {
+        public Object getItem(int position) {
             return objects.get(position);
         }
 
-        public long getItemId(int position)
-        {
+        public long getItemId(int position) {
             return position;
         }
 
-        public int getCount()
-        {
+        public int getCount() {
             return objects.size();
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent)
-        {
+        public View getView(int position, View convertView, ViewGroup parent) {
             View row;
 
             if (convertView == null) {

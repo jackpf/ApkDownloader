@@ -46,6 +46,14 @@ public class MainActivity extends SherlockActivity
     }
     
     @Override
+    protected void onResume()
+    {
+        super.onResume();
+        
+        ui.initialise();
+    }
+    
+    @Override
     protected void onDestroy()
     {
         super.onDestroy();
