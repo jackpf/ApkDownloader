@@ -354,6 +354,7 @@ int string activity_preferences_title 0x7f0a0010
 int string app_name 0x7f0a000d
 int string error_api_exception 0x7f0a0027
 int string error_empty_id 0x7f0a0028
+int string error_no_connection 0x7f0a0029
 int string error_unrecognized_login 0x7f0a0026
 int string pref_auth_title 0x7f0a0014
 int string pref_autoinstall_default 0x7f0a0024

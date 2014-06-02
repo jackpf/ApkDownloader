@@ -21,7 +21,6 @@ import android.util.Base64;
 import com.jackpf.apkdownloader.Entity.App;
 import com.jackpf.apkdownloader.Exception.AuthenticationException;
 import com.jackpf.apkdownloader.Exception.PlayApiException;
-import com.jackpf.apkdownloader.Proto.Play;
 
 public class PlayApi
 {

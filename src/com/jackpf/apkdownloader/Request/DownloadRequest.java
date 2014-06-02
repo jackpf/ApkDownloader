@@ -1,7 +1,6 @@
 package com.jackpf.apkdownloader.Request;
 
 import com.jackpf.apkdownloader.Downloader;
-import com.jackpf.apkdownloader.Entity.App;
 import com.jackpf.apkdownloader.Entity.Response;
 import com.jackpf.apkdownloader.Exception.AuthenticationException;
 import com.jackpf.apkdownloader.Exception.PlayApiException;
@@ -15,8 +14,8 @@ public class DownloadRequest extends RequestInterface
     public Response call(Object ...params) throws Exception
     {
         Authenticator authenticator = (Authenticator) getParam(params, 0, Authenticator.class);
-        Downloader downloader = (Downloader) getParam(params, 1, Downloader.class);
-        String appId = (String) getParam(params, 2, String.class);
+        Downloader downloader       = (Downloader) getParam(params, 1, Downloader.class);
+        String appId                = (String) getParam(params, 2, String.class);
         
         download(authenticator, downloader, appId);
         
@@ -27,9 +26,6 @@ public class DownloadRequest extends RequestInterface
         throws AuthenticationException, PlayApiException
     {
         PlayApi api = new PlayApi(authenticator);
-        
-        App app = api.getApp(appId);
-        
-        downloader.download(app);
+        downloader.download(api.getApp(appId));
     }
 }

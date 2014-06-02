@@ -3,7 +3,10 @@ package com.jackpf.apkdownloader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -108,7 +111,12 @@ public class MainActivity extends SherlockActivity
     {
         String appId = ((EditText) findViewById(R.id.app_id)).getText().toString();
         
-        if (!appId.equals("")) {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        
+        if (netInfo == null || !netInfo.isConnected()) {
+            Toast.makeText(getApplicationContext(), getString(R.string.error_no_connection), Toast.LENGTH_LONG).show();
+        } else if (!appId.equals("")) {
             if (thread instanceof NetworkThread) {
                 thread.cancel(true);
             }

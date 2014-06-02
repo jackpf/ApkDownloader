@@ -1055,6 +1055,7 @@ containing a value of this type.
         public static final int app_name=0x7f0a000d;
         public static final int error_api_exception=0x7f0a0027;
         public static final int error_empty_id=0x7f0a0028;
+        public static final int error_no_connection=0x7f0a0029;
         public static final int error_unrecognized_login=0x7f0a0026;
         public static final int pref_auth_title=0x7f0a0014;
         public static final int pref_autoinstall_default=0x7f0a0024;
