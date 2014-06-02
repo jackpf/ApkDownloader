@@ -32,15 +32,45 @@
     <string name="pref_autoinstall_default">false</string>
     <string name="pref_autoinstall_summary">Automatically install apps once they\'ve been downloaded</string>
     
+    <string name="pref_device_title">Device</string>
+    <string name="pref_device_summary">This is the device information that will be used to make the download request</string>
+    <string name="pref_sdk_version_key" translatable="false">sdk_version</string>
+    <string name="pref_sdk_version_title">SDK version</string>
+    <string name="pref_sdk_version_default">8013013</string>
+    <string name="pref_sdk_version_summary">SDK build version of device</string>
+    <string name="pref_device_and_sdk_version_key" translatable="false">device_and_sdk_version</string>
+    <string name="pref_device_and_sdk_version_title">Device and SDK version</string>
+    <string name="pref_device_and_sdk_version_default">Mako:18</string>
+    <string name="pref_device_and_sdk_version_summary">Device name and sdk version</string>
+    <string name="pref_operator_key" translatable="false">operator</string>
+    <string name="pref_operator_title">Network operator</string>
+    <string name="pref_operator_default">T-Mobile</string>
+    <string name="pref_operator_summary">Network operator of device</string>
+    <string name="pref_operator_numeric_key" translatable="false">operator_numeric</string>
+    <string name="pref_operator_numeric_title">Network operator code</string>
+    <string name="pref_operator_numeric_default">31020</string>
+    <string name="pref_operator_numeric_summary">Network operator numeric code</string>
+    <string name="pref_locale_key" translatable="false">locale</string>
+    <string name="pref_locale_title">Locale</string>
+    <string name="pref_locale_default">en</string>
+    <string name="pref_locale_summary">Locale</string>
+    <string name="pref_country_key" translatable="false">country</string>
+    <string name="pref_country_title">Country</string>
+    <string name="pref_country_default">us</string>
+    <string name="pref_country_summary">Country</string>
+    <string name="pref_device_reset_key">device_reset</string>
+    <string name="pref_device_reset_title">Reset device settings</string>
+    <string name="pref_device_reset_summary">Revert the device settings back to defaults</string>
+    
     <string name="error_unrecognized_login">Unable to authenticate - please enter valid credentials in settings</string>
-
     <string name="error_api_exception">Api exception: %s</string>
     <string name="error_empty_id">Please enter a valid application ID</string>
     <string name="error_no_connection">No connection</string>
     
     <string name="app_package">Package:</string>
-    <string name="download">Download</string>
+    <string name="download">Get</string>
     <string name="downloads">Downloads</string>
     <string name="app_downloading">Downloading app...</string>
+    <string name="device_prefs_reset">Preferences reset</string>
 	
 </resources>

@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.GZIPInputStream;
@@ -16,9 +15,13 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Base64;
 
 import com.google.protobuf.ByteString;
+import com.jackpf.apkdownloader.R;
 import com.jackpf.apkdownloader.Entity.App;
 import com.jackpf.apkdownloader.Exception.AuthenticationException;
 import com.jackpf.apkdownloader.Exception.PlayApiException;
@@ -34,30 +37,41 @@ public class PlayApi
     /**
      * Request vars
      */
-    private final int       SDK_VERSION            = 8013013;
-    private final String    DEVICE_AND_SDK_VERSION = "mako:18";
-    private final String    OPERATOR               = "T-Mobile";
-    private final String    OPERATOR_NUMERIC       = "31020";
-    private final String    LOCALE                 = "en";
-    private final String    COUNTRY                = "us";
+    private final int       SDK_VERSION;;
+    private final String    DEVICE_AND_SDK_VERSION;
+    private final String    OPERATOR;
+    private final String    OPERATOR_NUMERIC;
+    private final String    LOCALE;
+    private final String    COUNTRY;
     
     /**
      * Request url
      */
-    private final String    REQUEST_URL            = "https://android.clients.google.com/market/api/ApiRequest";
+    private final String    REQUEST_URL     = "https://android.clients.google.com/market/api/ApiRequest";
+    
     /**
      * Request version
      */
-    private final int       REQUEST_VERSION        = 2;
+    private final int       REQUEST_VERSION = 2;
     
     /**
      * Constructor
      * 
      * @param authenticator
+     * @param context
      */
-    public PlayApi(Authenticator authenticator)
+    public PlayApi(Context context, Authenticator authenticator)
     {
         this.authenticator = authenticator;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        
+        SDK_VERSION             = Integer.parseInt(prefs.getString(context.getString(R.string.pref_sdk_version_key),    context.getString(R.string.pref_sdk_version_default)));
+        DEVICE_AND_SDK_VERSION  = prefs.getString(context.getString(R.string.pref_device_and_sdk_version_key),          context.getString(R.string.pref_device_and_sdk_version_default));
+        OPERATOR                = prefs.getString(context.getString(R.string.pref_operator_key),                        context.getString(R.string.pref_operator_default));
+        OPERATOR_NUMERIC        = prefs.getString(context.getString(R.string.pref_operator_numeric_key),                context.getString(R.string.pref_operator_numeric_default));
+        LOCALE                  = prefs.getString(context.getString(R.string.pref_locale_key),                          context.getString(R.string.pref_locale_default));
+        COUNTRY                 = prefs.getString(context.getString(R.string.pref_country_key),                         context.getString(R.string.pref_country_default));
     }
     
     /**

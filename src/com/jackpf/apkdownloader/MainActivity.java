@@ -18,6 +18,7 @@ import com.actionbarsherlock.view.MenuItem;
 import com.jackpf.apkdownloader.Model.UIInterface;
 import com.jackpf.apkdownloader.Request.DownloadRequest;
 import com.jackpf.apkdownloader.Service.Authenticator;
+import com.jackpf.apkdownloader.Service.PlayApi;
 import com.jackpf.apkdownloader.UI.MainActivityUI;
 
 public class MainActivity extends SherlockActivity
@@ -135,7 +136,7 @@ public class MainActivity extends SherlockActivity
                 ui
             );
             thread.execute(
-                new Authenticator(this),
+                new PlayApi(this, new Authenticator(this)),
                 new Downloader(this, ui),
                 appId
             );

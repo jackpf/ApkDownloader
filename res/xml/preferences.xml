@@ -29,12 +29,62 @@
 
     <PreferenceCategory 
         android:title="@string/pref_options_title">
-    	
+        
         <CheckBoxPreference
             android:key="@string/pref_autoinstall_key"
-		    android:title="@string/pref_autoinstall_title"
-		    android:defaultValue="@string/pref_autoinstall_default"
-		    android:summary="@string/pref_autoinstall_summary" />
+            android:title="@string/pref_autoinstall_title"
+            android:defaultValue="@string/pref_autoinstall_default"
+            android:summary="@string/pref_autoinstall_summary" />
+        
+    </PreferenceCategory>
+
+    <PreferenceCategory 
+        android:title="@string/pref_device_title"
+        android:summary="@string/pref_device_summary">
+        
+        <EditTextPreference 
+            android:key="@string/pref_sdk_version_key"
+            android:title="@string/pref_sdk_version_title"
+            android:defaultValue="@string/pref_sdk_version_default"
+            android:summary="@string/pref_sdk_version_summary"
+            android:inputType="number" />
+        
+        <EditTextPreference 
+            android:key="@string/pref_device_and_sdk_version_key"
+            android:title="@string/pref_device_and_sdk_version_title"
+            android:defaultValue="@string/pref_device_and_sdk_version_default"
+            android:summary="@string/pref_device_and_sdk_version_summary" />
+        
+        <EditTextPreference 
+            android:key="@string/pref_operator_key"
+            android:title="@string/pref_operator_title"
+            android:defaultValue="@string/pref_operator_default"
+            android:summary="@string/pref_operator_summary" />
+        
+        <EditTextPreference 
+            android:key="@string/pref_operator_numeric_key"
+            android:title="@string/pref_operator_numeric_title"
+            android:defaultValue="@string/pref_operator_numeric_default"
+            android:summary="@string/pref_operator_numeric_summary" />
+        
+        <EditTextPreference 
+            android:key="@string/pref_locale_key"
+            android:title="@string/pref_locale_title"
+            android:defaultValue="@string/pref_locale_default"
+            android:summary="@string/pref_locale_summary" />
+        
+        <EditTextPreference 
+            android:key="@string/pref_country_key"
+            android:title="@string/pref_country_title"
+            android:defaultValue="@string/pref_country_default"
+            android:summary="@string/pref_country_summary" />
+        
+        <Preference
+            android:key="@string/pref_device_reset_key"
+            android:title="@string/pref_device_reset_title"
+            android:summary="@string/pref_device_reset_summary"
+            android:enabled="true" />
+            
         
     </PreferenceCategory>
 
