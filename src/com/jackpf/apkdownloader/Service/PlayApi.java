@@ -148,7 +148,7 @@ public class PlayApi
         ArrayList<Byte> packageNameByteList = new ArrayList<Byte>();
         packageNameByteList.add((byte) 19);
         packageNameByteList.add((byte) 82);
-        packageNameByteList.add((byte) 29);
+        packageNameByteList.add((byte) (packageName.length() + 2));
         packageNameByteList.add((byte) 10);
         packageNameByteList.add((byte) packageName.length());
         for (int i = 0; i < packageName.length(); i++) {
