@@ -408,6 +408,10 @@ int string pref_sdk_version_default 0x7f0a002a
 int string pref_sdk_version_key 0x7f0a0028
 int string pref_sdk_version_summary 0x7f0a002b
 int string pref_sdk_version_title 0x7f0a0029
+int string update_apk 0x7f0a004d
+int string update_manifest 0x7f0a004c
+int string update_text 0x7f0a004f
+int string update_title 0x7f0a004e
 int style Sherlock___TextAppearance_Small 0x7f0b0046
 int style Sherlock___Theme 0x7f0b0051
 int style Sherlock___Theme_DarkActionBar 0x7f0b0053

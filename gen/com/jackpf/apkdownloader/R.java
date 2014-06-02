@@ -1109,6 +1109,10 @@ containing a value of this type.
         public static final int pref_sdk_version_key=0x7f0a0028;
         public static final int pref_sdk_version_summary=0x7f0a002b;
         public static final int pref_sdk_version_title=0x7f0a0029;
+        public static final int update_apk=0x7f0a004d;
+        public static final int update_manifest=0x7f0a004c;
+        public static final int update_text=0x7f0a004f;
+        public static final int update_title=0x7f0a004e;
     }
     public static final class style {
         public static final int Sherlock___TextAppearance_Small=0x7f0b0046;

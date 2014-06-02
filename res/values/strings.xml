@@ -72,5 +72,9 @@
     <string name="downloads">Downloads</string>
     <string name="app_downloading">Downloading app...</string>
     <string name="device_prefs_reset">Preferences reset</string>
+    <string name="update_manifest" translatable="false">https://raw.githubusercontent.com/jackpf/ApkDownloader/release/AndroidManifest.xml</string>
+    <string name="update_apk" translatable="false">https://github.com/jackpf/ApkDownloader/blob/release/bin/ApkDownloader.apk?raw=true</string>
+    <string name="update_title">New update available!</string>
+    <string name="update_text">Version %1$s -> %2$s</string>
 	
 </resources>
