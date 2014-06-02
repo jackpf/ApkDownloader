@@ -25,8 +25,8 @@ public class SelfUpdater
 {
     protected Context context;
     
-    protected final static String 	PREF_UPDATE_KEY = "last_update_time";
-    protected final static int 		UPDATE_INTERVAL = 60 * 60 * 24;
+    protected final static String   PREF_UPDATE_KEY = "last_update_time";
+    protected final static int      UPDATE_INTERVAL = 60 * 60 * 24;
     
     public SelfUpdater(Context context)
     {
@@ -35,12 +35,12 @@ public class SelfUpdater
     
     public void checkForUpdate()
     {
-    	SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         
         long lastUpdateTime = prefs.getLong(PREF_UPDATE_KEY, 0), currentTime = System.currentTimeMillis() / 1000;
         
         if (currentTime - lastUpdateTime <= UPDATE_INTERVAL) {
-        	return;
+            return;
         }
 
         SharedPreferences.Editor editor = prefs.edit();

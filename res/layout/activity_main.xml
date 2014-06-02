@@ -17,7 +17,7 @@
         android:layout_marginTop="20dp"
         android:gravity="center_vertical"
         android:layout_marginBottom="20sp" >
-	    
+    
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -31,18 +31,18 @@
 	        android:layout_width="0dp"
 	        android:layout_height="wrap_content"
 		    android:layout_weight="0.5"
-	    	android:layout_gravity="center_horizontal"
-	    	android:singleLine="true" />
-
+		    android:layout_gravity="center_horizontal"
+		    android:singleLine="true" />
+	
 	    <Button
 	        android:layout_width="0dp"
 	        android:layout_height="36dp"
-		    android:layout_weight="0.2"
+	    	android:layout_weight="0.2"
 	        android:onClick="download"
 	        android:text="@string/download" />
     
     </LinearLayout>
-	    
+    
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,7 +57,6 @@
 		android:layout_height="wrap_content"
 		android:divider="@android:color/transparent"
 		android:choiceMode="singleChoice" 
-		android:cacheColorHint="@android:color/transparent"
-		android:scrollbars="none" />
+		android:cacheColorHint="@android:color/transparent" />
 
 </LinearLayout>

@@ -7,13 +7,6 @@ import java.util.Comparator;
 import java.util.List;
 
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +26,7 @@ import com.actionbarsherlock.view.MenuItem;
 import com.jackpf.apkdownloader.Downloader;
 import com.jackpf.apkdownloader.Helpers;
 import com.jackpf.apkdownloader.R;
+import com.jackpf.apkdownloader.Entity.ApkFile;
 import com.jackpf.apkdownloader.Exception.AuthenticationException;
 import com.jackpf.apkdownloader.Exception.PlayApiException;
 import com.jackpf.apkdownloader.Model.UIInterface;
@@ -41,9 +35,9 @@ public class MainActivityUI extends UIInterface
 {
     private SherlockActivity activity;
     
-    private ArrayAdapter<List<File>> adapter;
+    private ArrayAdapter<List<ApkFile>> adapter;
     
-    private List<File> downloads = new ArrayList<File>();
+    private List<ApkFile> downloads = new ArrayList<ApkFile>();
     
     public MainActivityUI(Context context)
     {
@@ -64,20 +58,20 @@ public class MainActivityUI extends UIInterface
         if (dir.listFiles() != null) {
             for (File file : dir.listFiles()) {
                 if (!downloads.contains(file)) {
-                    downloads.add(file);
+                    downloads.add(new ApkFile(context, file));
                 }
             }
         }
         
-        Collections.sort(downloads, new Comparator<File>() {
+        Collections.sort(downloads, new Comparator<ApkFile>() {
             @Override
-            public int compare(File f1, File f2) {
-                return f1.lastModified() < f2.lastModified() ? 1 : -1;
+            public int compare(ApkFile f1, ApkFile f2) {
+                return f1.getFile().lastModified() < f2.getFile().lastModified() ? 1 : -1;
             }
         });
         
         if (adapter == null) {
-            adapter = new ArrayAdapter<List<File>>(context, downloads);
+            adapter = new ArrayAdapter<List<ApkFile>>(context, downloads);
             downloadsList.setAdapter(adapter);
             
             downloadsList.setOnItemClickListener(new OnItemClickListener() {
@@ -167,28 +161,10 @@ public class MainActivityUI extends UIInterface
                 row = convertView;
             }
             
-            File file = (File) getItem(position);
+            ApkFile apk = (ApkFile) getItem(position);
             
-            ((TextView) row.findViewById(R.id.package_name)).setText(file.getName());
-
-            if (file.getPath().endsWith(".apk")) {
-                String filePath = file.getPath();
-                PackageInfo packageInfo = context.getPackageManager().getPackageArchiveInfo(filePath, PackageManager.GET_ACTIVITIES);
-                
-                if(packageInfo != null) {
-                    ApplicationInfo appInfo = packageInfo.applicationInfo;
-                    
-                    if (Build.VERSION.SDK_INT >= 8) {
-                        appInfo.sourceDir = filePath;
-                        appInfo.publicSourceDir = filePath;
-                    }
-                    
-                    Drawable icon = appInfo.loadIcon(context.getPackageManager());
-                    Bitmap bmpIcon = ((BitmapDrawable) icon).getBitmap();
-                    
-                    ((ImageView) row.findViewById(R.id.package_icon)).setImageBitmap(bmpIcon);
-                }
-            }
+            ((TextView) row.findViewById(R.id.package_name)).setText(apk.getFile().getName());
+            ((ImageView) row.findViewById(R.id.package_icon)).setImageBitmap(apk.getIcon());
             
             return row;
         }
