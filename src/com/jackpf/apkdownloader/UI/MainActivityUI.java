@@ -57,8 +57,9 @@ public class MainActivityUI extends UIInterface
         File dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + Downloader.DOWNLOAD_DIR);
         if (dir.listFiles() != null) {
             for (File file : dir.listFiles()) {
-                if (!downloads.contains(file)) {
-                    downloads.add(new ApkFile(context, file));
+                ApkFile apk = new ApkFile(context, file);
+                if (!downloads.contains(apk)) {
+                    downloads.add(apk);
                 }
             }
         }

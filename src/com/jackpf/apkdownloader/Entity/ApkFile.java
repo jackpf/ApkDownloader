@@ -49,6 +49,12 @@ public class ApkFile
         }
     }
     
+    @Override
+    public boolean equals(Object o)
+    {
+        return o instanceof ApkFile && ((ApkFile) o).getFile().equals(getFile());
+    }
+    
     /**
      * Get file
      * 
