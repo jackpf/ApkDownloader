@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="action_settings">Nastavenia</string>
+    <string name="action_help">Pomocník</string>
+    
+    <string name="activity_preferences_title">Nastavenia</string>
+    <string name="activity_help_title">Pomocník</string>
+    
+    <string name="action_edit">Upraviť</string>
+    <string name="action_delete">Vymazať</string>
+
+    <string name="pref_auth_title">Overovanie</string>
+    <string name="pref_email_title">E-mail</string>
+    <string name="pref_email_summary">Vaša e-mailová Gmail adresa</string>
+    <string name="pref_password_title">Heslo</string>
+    <string name="pref_password_summary">Vaše Gmail heslo</string>
+    <string name="pref_gsfid_title">ID frameworku Google služieb</string>
+    <string name="pref_gsfid_summary">ID frameworku Google služieb (ak nemáte nainštalované Google služby, je potrebné zadať ID ručne)</string>
+    
+    <string name="pref_options_title">Možnosti</string>
+    <string name="pref_autoinstall_title">Automaticky inštalovať aplikácie</string>
+    <string name="pref_autoinstall_summary">Automaticky inštalovať aplikácie po ich stiahnutí</string>
+    
+    <string name="error_unrecognized_login">Nemožno overiť - prosím, zadajte platné prihlasovacie údaje v nastaveniach</string>
+    <string name="error_api_exception">API výnimka: %s</string>
+    <string name="error_empty_id">prosím, zadajte platné ID aplikácie</string>
+	  
+    <string name="app_package">Balík:</string>
+    <string name="download">Stiahnúť</string>
+    <string name="downloads">Sťahovania</string>
+    <string name="app_downloading">Sťahovanie aplikácie...</string>
+	
+</resources>

@@ -60,7 +60,7 @@ public class Downloader
             .setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE)
             .setAllowedOverRoaming(true)
             .setTitle(app.getAppId())
-            .setDescription("App downloading...")
+            .setDescription(context.getString(R.string.app_downloading))
             .setDestinationInExternalPublicDir(DOWNLOAD_DIR, app.getAppId() + ".apk")
             .addRequestHeader("Cookie", "MarketDA=" + app.getMarketDA()) // + ";ANDROIDSECURE=" + authToken)
         ;

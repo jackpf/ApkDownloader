@@ -1052,7 +1052,11 @@ containing a value of this type.
         public static final int action_settings=0x7f0a000e;
         public static final int activity_help_title=0x7f0a0011;
         public static final int activity_preferences_title=0x7f0a0010;
+        public static final int app_downloading=0x7f0a002d;
         public static final int app_name=0x7f0a000d;
+        public static final int app_package=0x7f0a002a;
+        public static final int download=0x7f0a002b;
+        public static final int downloads=0x7f0a002c;
         public static final int error_api_exception=0x7f0a0027;
         public static final int error_empty_id=0x7f0a0028;
         public static final int error_no_connection=0x7f0a0029;

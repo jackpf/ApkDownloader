@@ -351,7 +351,11 @@ int string action_help 0x7f0a000f
 int string action_settings 0x7f0a000e
 int string activity_help_title 0x7f0a0011
 int string activity_preferences_title 0x7f0a0010
+int string app_downloading 0x7f0a002d
 int string app_name 0x7f0a000d
+int string app_package 0x7f0a002a
+int string download 0x7f0a002b
+int string downloads 0x7f0a002c
 int string error_api_exception 0x7f0a0027
 int string error_empty_id 0x7f0a0028
 int string error_no_connection 0x7f0a0029
