@@ -2,6 +2,8 @@ package com.jackpf.apkdownloader.UI;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import android.content.Context;
@@ -39,9 +41,9 @@ public class MainActivityUI extends UIInterface
 {
     private SherlockActivity activity;
     
-    private ArrayAdapter<ArrayList<File>> adapter;
+    private ArrayAdapter<List<File>> adapter;
     
-    private ArrayList<File> downloads = new ArrayList<File>();
+    private List<File> downloads = new ArrayList<File>();
     
     public MainActivityUI(Context context)
     {
@@ -67,8 +69,15 @@ public class MainActivityUI extends UIInterface
             }
         }
         
+        Collections.sort(downloads, new Comparator<File>() {
+            @Override
+            public int compare(File f1, File f2) {
+                return f1.lastModified() < f2.lastModified() ? 1 : -1;
+            }
+        });
+        
         if (adapter == null) {
-            adapter = new ArrayAdapter<ArrayList<File>>(context, downloads);
+            adapter = new ArrayAdapter<List<File>>(context, downloads);
             downloadsList.setAdapter(adapter);
             
             downloadsList.setOnItemClickListener(new OnItemClickListener() {
