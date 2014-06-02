@@ -3,7 +3,7 @@ package com.jackpf.apkdownloader.Service;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.InputStreamReader;
-import java.util.LinkedHashMap;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -18,9 +18,11 @@ import org.apache.http.util.EntityUtils;
 
 import android.util.Base64;
 
+import com.google.protobuf.ByteString;
 import com.jackpf.apkdownloader.Entity.App;
 import com.jackpf.apkdownloader.Exception.AuthenticationException;
 import com.jackpf.apkdownloader.Exception.PlayApiException;
+import com.jackpf.apkdownloader.Proto.Play;
 
 public class PlayApi
 {
@@ -33,7 +35,7 @@ public class PlayApi
      * Request vars
      */
     private final int       SDK_VERSION            = 8013013;
-    private final String    DEVICE_SDK_AND_VERSION = "mako:18";
+    private final String    DEVICE_AND_SDK_VERSION = "mako:18";
     private final String    OPERATOR               = "T-Mobile";
     private final String    OPERATOR_NUMERIC       = "31020";
     private final String    LOCALE                 = "en";
@@ -47,29 +49,6 @@ public class PlayApi
      * Request version
      */
     private final int       REQUEST_VERSION        = 2;
-    
-    /**
-     * Protobuf fields
-     * TODO: Actually use protobuf
-     *  Can't quite get the proto file right though
-     */
-    private final byte[]
-        SEP_1   = new byte[]{16},
-        SEP_2   = new byte[]{24},
-        SEP_3   = new byte[]{34},
-        SEP_4   = new byte[]{42},
-        SEP_5   = new byte[]{50},
-        SEP_6   = new byte[]{58},
-        SEP_7   = new byte[]{66},
-        SEP_8   = new byte[]{74},
-        SEP_9   = new byte[]{82},
-        SEP_10  = new byte[]{90},
-        SEP_11  = new byte[]{19, 82},
-        SEP_12  = new byte[]{10},
-        SEP_13  = new byte[]{20},
-        SEP_14  = new byte[]{10},
-        SEP_15  = new byte[]{10}
-    ;
     
     /**
      * Constructor
@@ -90,12 +69,7 @@ public class PlayApi
      */
     public App getApp(String packageName) throws PlayApiException, AuthenticationException
     {
-        Serializer.Bytes protoBuf = buildProtoBuf(packageName).getBytes();
-        
-        byte[] realBytes = new byte[protoBuf.size()];
-        for (int i = 0; i < protoBuf.size(); i++) {
-            realBytes[i] = protoBuf.get(i);
-        }
+        byte[] protoBuf = buildProtoBuf(packageName);
         
         try {
             HttpClient client = new DefaultHttpClient();
@@ -106,7 +80,7 @@ public class PlayApi
                 new StringEntity(String.format(
                     "version=%d&request=%s",
                     REQUEST_VERSION,
-                    Base64.encodeToString(realBytes, Base64.DEFAULT)
+                    Base64.encodeToString(protoBuf, Base64.DEFAULT)
                 ))
             );
             
@@ -141,51 +115,57 @@ public class PlayApi
      * @param packageName
      * @return
      */
-    private Serializer buildProtoBuf(String packageName) throws AuthenticationException
+    private byte[] buildProtoBuf(String packageName) throws AuthenticationException
     {
-        Serializer serializer = new Serializer();
-        Map<String, Object> map = new LinkedHashMap<String, Object>();
+        // Generate byte array from the auth subtoken
+        byte[]
+            authTokenBytes  = authenticator.getToken().getBytes(),
+            authExtraBytes  = {16, 1}, // Not sure why these have to be appended, but hey ho
+            authBytes       = new byte[authTokenBytes.length + authExtraBytes.length]
+        ;
+
+        System.arraycopy(authTokenBytes, 0, authBytes, 0, authTokenBytes.length);
+        System.arraycopy(authExtraBytes, 0, authBytes, authTokenBytes.length, authExtraBytes.length);
         
-        map.put("authToken", authenticator.getToken());
-        map.put("SEP_1", SEP_1);
-        map.put("isSecure", true);
-        map.put("SEP_2", SEP_2);
-        map.put("sdkVersion", SDK_VERSION);
-        map.put("SEP_3", SEP_3);
-        map.put("deviceId", authenticator.getGsfId());
-        map.put("SEP_4", SEP_4);
-        map.put("deviceAndSdkVersion", DEVICE_SDK_AND_VERSION);
-        map.put("SEP_5", SEP_5);
-        map.put("locale", LOCALE);
-        map.put("SEP_6", SEP_6);
-        map.put("country", COUNTRY);
-        map.put("SEP_7", SEP_7);
-        map.put("operatorAlpha", OPERATOR);
-        map.put("SEP_8", SEP_8);
-        map.put("simOperatorAlpha", OPERATOR);
-        map.put("SEP_9", SEP_9);
-        map.put("operatorNumeric", OPERATOR_NUMERIC);
-        map.put("SEP_10", SEP_10);
-        map.put("simOperatorNumeric", OPERATOR_NUMERIC);
-        map.put("SEP_11", SEP_11);
-        map.put("packageNameLength", packageName.length() + 2);
-        map.put("SEP_12", SEP_12);
-        map.put("packageName", packageName);
-        map.put("SEP_13", SEP_13);
+        // Build a (mostly correct) request protobuf
+        Play.RequestContext proto = Play.RequestContext.newBuilder().addApp(
+            Play.RequestContext.newBuilder().addAppBuilder()
+                .setAuthSubToken(ByteString.copyFrom(authBytes))
+                .setVersion(SDK_VERSION)
+                .setAndroidId(authenticator.getGsfId())
+                .setDeviceAndSdkVersion(DEVICE_AND_SDK_VERSION)
+                .setUserLanguage(LOCALE)
+                .setUserCountry(COUNTRY)
+                .setOperatorAlpha(OPERATOR)
+                .setSimOperatorAlpha(OPERATOR)
+                .setOperatorNumeric(OPERATOR_NUMERIC)
+                .setSimOperatorNumeric(OPERATOR_NUMERIC)
+        ).build();
         
-        for (Map.Entry<String, Object> entry : map.entrySet()) {
-            serializer.serialize(entry.getValue());
+        byte partialProtoBytes[] = proto.toByteArray();
+        partialProtoBytes[4] = -53; // Ahem...
+        
+        ArrayList<Byte> packageNameByteList = new ArrayList<Byte>();
+        packageNameByteList.add((byte) 19);
+        packageNameByteList.add((byte) 82);
+        packageNameByteList.add((byte) 29);
+        packageNameByteList.add((byte) 10);
+        packageNameByteList.add((byte) packageName.length());
+        for (int i = 0; i < packageName.length(); i++) {
+            packageNameByteList.add((byte) packageName.charAt(i));
+        }
+        packageNameByteList.add((byte) 20);
+        
+        byte[] packageNameBytes = new byte[packageNameByteList.size()];
+        for (int i = 0; i < packageNameByteList.size(); i++) {
+            packageNameBytes[i] = packageNameByteList.get(i);
         }
         
-        Serializer tmpSerializer1 = new Serializer(), tmpSerializer2 = new Serializer();
-        tmpSerializer1.serialize(SEP_14);
-        tmpSerializer2.serialize(getSimOperatorLength(map));
-        tmpSerializer1.getBytes().addAll(tmpSerializer2.getBytes());
-        tmpSerializer1.serialize(SEP_15);
+        byte protoBytes[] = new byte[partialProtoBytes.length + packageNameBytes.length];
+        System.arraycopy(partialProtoBytes, 0, protoBytes, 0, partialProtoBytes.length);
+        System.arraycopy(packageNameBytes, 0, protoBytes, partialProtoBytes.length, packageNameBytes.length);
         
-        serializer.getBytes().addAll(0, tmpSerializer1.getBytes());
-        
-        return serializer;
+        return protoBytes;
     }
     
     /**
@@ -230,24 +210,5 @@ public class PlayApi
         }
         
         return sb.toString();
-    }
-    
-    /**
-     * @param map
-     * @return
-     */
-    private int getSimOperatorLength(Map<String, Object> map)
-    {
-        Serializer tmpSerializer = new Serializer();
-        
-        for (Map.Entry<String, Object> entry : map.entrySet()) {
-            tmpSerializer.serialize(entry.getValue());
-            
-            if (entry.getKey().equals("simOperatorNumeric")) {
-                return tmpSerializer.getBytes().size() + 1;
-            }
-        }
-        
-        throw new RuntimeException("Unable to determine sim operator length");
     }
 }
