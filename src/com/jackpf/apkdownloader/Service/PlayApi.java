@@ -57,8 +57,8 @@ public class PlayApi
     /**
      * Constructor
      * 
-     * @param authenticator
      * @param context
+     * @param authenticator
      */
     public PlayApi(Context context, Authenticator authenticator)
     {
@@ -116,7 +116,7 @@ public class PlayApi
             while ((line = in.readLine()) != null) {
                 sb.append(line);
             }
-            
+            System.err.println(sb.toString());
             return new App(packageName, extractDownloadPath(sb.toString()), extractMarketDA(sb.toString()));
         } catch (Exception e) {
             throw new PlayApiException(e.getMessage());

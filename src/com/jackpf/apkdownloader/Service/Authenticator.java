@@ -64,7 +64,7 @@ public class Authenticator
                 String gsfid = getGsfId();
                 
                 if (gsfid == null) {
-                    throw new AuthenticationException("No gsfid, please enter one in settings");
+                    throw new AuthenticationException("No gsfid");
                 }
                 
                 session.login(email, password, gsfid);

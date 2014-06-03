@@ -48,7 +48,7 @@ public class MainActivityUI extends UIInterface
     
     public void initialise(Object ...params)
     {
-        if (params.length > 1 && params[0] instanceof String) {
+        if (params.length > 0 && params[0] instanceof String) {
             ((EditText) activity.findViewById(R.id.app_id)).setText((String) params[0]);
         }
         
