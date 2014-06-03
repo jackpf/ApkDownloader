@@ -2970,6 +2970,2649 @@ public final class Play {
     // @@protoc_insertion_point(class_scope:App)
   }
 
+  public interface GetAssetResponseOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // repeated group InstallAsset = 1 {
+    /**
+     * <code>repeated group InstallAsset = 1 { ... }</code>
+     */
+    java.util.List<Play.GetAssetResponse.InstallAsset> 
+        getInstallAssetList();
+    /**
+     * <code>repeated group InstallAsset = 1 { ... }</code>
+     */
+    Play.GetAssetResponse.InstallAsset getInstallAsset(int index);
+    /**
+     * <code>repeated group InstallAsset = 1 { ... }</code>
+     */
+    int getInstallAssetCount();
+    /**
+     * <code>repeated group InstallAsset = 1 { ... }</code>
+     */
+    java.util.List<? extends Play.GetAssetResponse.InstallAssetOrBuilder> 
+        getInstallAssetOrBuilderList();
+    /**
+     * <code>repeated group InstallAsset = 1 { ... }</code>
+     */
+    Play.GetAssetResponse.InstallAssetOrBuilder getInstallAssetOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code GetAssetResponse}
+   */
+  public static final class GetAssetResponse extends
+      com.google.protobuf.GeneratedMessage
+      implements GetAssetResponseOrBuilder {
+    // Use GetAssetResponse.newBuilder() to construct.
+    private GetAssetResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private GetAssetResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final GetAssetResponse defaultInstance;
+    public static GetAssetResponse getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public GetAssetResponse getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetAssetResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 11: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                installAsset_ = new java.util.ArrayList<Play.GetAssetResponse.InstallAsset>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              installAsset_.add(input.readGroup(1, Play.GetAssetResponse.InstallAsset.PARSER,
+                  extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          installAsset_ = java.util.Collections.unmodifiableList(installAsset_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Play.internal_static_GetAssetResponse_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Play.internal_static_GetAssetResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Play.GetAssetResponse.class, Play.GetAssetResponse.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<GetAssetResponse> PARSER =
+        new com.google.protobuf.AbstractParser<GetAssetResponse>() {
+      public GetAssetResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetAssetResponse(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetAssetResponse> getParserForType() {
+      return PARSER;
+    }
+
+    public interface InstallAssetOrBuilder
+        extends com.google.protobuf.MessageOrBuilder {
+
+      // optional string assetId = 2;
+      /**
+       * <code>optional string assetId = 2;</code>
+       */
+      boolean hasAssetId();
+      /**
+       * <code>optional string assetId = 2;</code>
+       */
+      java.lang.String getAssetId();
+      /**
+       * <code>optional string assetId = 2;</code>
+       */
+      com.google.protobuf.ByteString
+          getAssetIdBytes();
+
+      // optional string assetName = 3;
+      /**
+       * <code>optional string assetName = 3;</code>
+       */
+      boolean hasAssetName();
+      /**
+       * <code>optional string assetName = 3;</code>
+       */
+      java.lang.String getAssetName();
+      /**
+       * <code>optional string assetName = 3;</code>
+       */
+      com.google.protobuf.ByteString
+          getAssetNameBytes();
+
+      // optional string assetType = 4;
+      /**
+       * <code>optional string assetType = 4;</code>
+       */
+      boolean hasAssetType();
+      /**
+       * <code>optional string assetType = 4;</code>
+       */
+      java.lang.String getAssetType();
+      /**
+       * <code>optional string assetType = 4;</code>
+       */
+      com.google.protobuf.ByteString
+          getAssetTypeBytes();
+
+      // optional string assetPackage = 5;
+      /**
+       * <code>optional string assetPackage = 5;</code>
+       */
+      boolean hasAssetPackage();
+      /**
+       * <code>optional string assetPackage = 5;</code>
+       */
+      java.lang.String getAssetPackage();
+      /**
+       * <code>optional string assetPackage = 5;</code>
+       */
+      com.google.protobuf.ByteString
+          getAssetPackageBytes();
+
+      // optional string blobUrl = 6;
+      /**
+       * <code>optional string blobUrl = 6;</code>
+       */
+      boolean hasBlobUrl();
+      /**
+       * <code>optional string blobUrl = 6;</code>
+       */
+      java.lang.String getBlobUrl();
+      /**
+       * <code>optional string blobUrl = 6;</code>
+       */
+      com.google.protobuf.ByteString
+          getBlobUrlBytes();
+
+      // optional string assetSignature = 7;
+      /**
+       * <code>optional string assetSignature = 7;</code>
+       */
+      boolean hasAssetSignature();
+      /**
+       * <code>optional string assetSignature = 7;</code>
+       */
+      java.lang.String getAssetSignature();
+      /**
+       * <code>optional string assetSignature = 7;</code>
+       */
+      com.google.protobuf.ByteString
+          getAssetSignatureBytes();
+
+      // optional uint64 assetSize = 8;
+      /**
+       * <code>optional uint64 assetSize = 8;</code>
+       */
+      boolean hasAssetSize();
+      /**
+       * <code>optional uint64 assetSize = 8;</code>
+       */
+      long getAssetSize();
+
+      // optional uint64 refundTimeout = 9;
+      /**
+       * <code>optional uint64 refundTimeout = 9;</code>
+       */
+      boolean hasRefundTimeout();
+      /**
+       * <code>optional uint64 refundTimeout = 9;</code>
+       */
+      long getRefundTimeout();
+
+      // optional bool forwardLocked = 10;
+      /**
+       * <code>optional bool forwardLocked = 10;</code>
+       */
+      boolean hasForwardLocked();
+      /**
+       * <code>optional bool forwardLocked = 10;</code>
+       */
+      boolean getForwardLocked();
+
+      // optional bool secured = 11;
+      /**
+       * <code>optional bool secured = 11;</code>
+       */
+      boolean hasSecured();
+      /**
+       * <code>optional bool secured = 11;</code>
+       */
+      boolean getSecured();
+
+      // optional int32 versionCode = 12;
+      /**
+       * <code>optional int32 versionCode = 12;</code>
+       */
+      boolean hasVersionCode();
+      /**
+       * <code>optional int32 versionCode = 12;</code>
+       */
+      int getVersionCode();
+
+      // optional string downloadAuthCookieName = 13;
+      /**
+       * <code>optional string downloadAuthCookieName = 13;</code>
+       */
+      boolean hasDownloadAuthCookieName();
+      /**
+       * <code>optional string downloadAuthCookieName = 13;</code>
+       */
+      java.lang.String getDownloadAuthCookieName();
+      /**
+       * <code>optional string downloadAuthCookieName = 13;</code>
+       */
+      com.google.protobuf.ByteString
+          getDownloadAuthCookieNameBytes();
+
+      // optional string downloadAuthCookieValue = 14;
+      /**
+       * <code>optional string downloadAuthCookieValue = 14;</code>
+       */
+      boolean hasDownloadAuthCookieValue();
+      /**
+       * <code>optional string downloadAuthCookieValue = 14;</code>
+       */
+      java.lang.String getDownloadAuthCookieValue();
+      /**
+       * <code>optional string downloadAuthCookieValue = 14;</code>
+       */
+      com.google.protobuf.ByteString
+          getDownloadAuthCookieValueBytes();
+    }
+    /**
+     * Protobuf type {@code GetAssetResponse.InstallAsset}
+     */
+    public static final class InstallAsset extends
+        com.google.protobuf.GeneratedMessage
+        implements InstallAssetOrBuilder {
+      // Use InstallAsset.newBuilder() to construct.
+      private InstallAsset(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+        super(builder);
+        this.unknownFields = builder.getUnknownFields();
+      }
+      private InstallAsset(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+      private static final InstallAsset defaultInstance;
+      public static InstallAsset getDefaultInstance() {
+        return defaultInstance;
+      }
+
+      public InstallAsset getDefaultInstanceForType() {
+        return defaultInstance;
+      }
+
+      private final com.google.protobuf.UnknownFieldSet unknownFields;
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+          getUnknownFields() {
+        return this.unknownFields;
+      }
+      private InstallAsset(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        initFields();
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!parseUnknownField(input, unknownFields,
+                                       extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+              case 18: {
+                bitField0_ |= 0x00000001;
+                assetId_ = input.readBytes();
+                break;
+              }
+              case 26: {
+                bitField0_ |= 0x00000002;
+                assetName_ = input.readBytes();
+                break;
+              }
+              case 34: {
+                bitField0_ |= 0x00000004;
+                assetType_ = input.readBytes();
+                break;
+              }
+              case 42: {
+                bitField0_ |= 0x00000008;
+                assetPackage_ = input.readBytes();
+                break;
+              }
+              case 50: {
+                bitField0_ |= 0x00000010;
+                blobUrl_ = input.readBytes();
+                break;
+              }
+              case 58: {
+                bitField0_ |= 0x00000020;
+                assetSignature_ = input.readBytes();
+                break;
+              }
+              case 64: {
+                bitField0_ |= 0x00000040;
+                assetSize_ = input.readUInt64();
+                break;
+              }
+              case 72: {
+                bitField0_ |= 0x00000080;
+                refundTimeout_ = input.readUInt64();
+                break;
+              }
+              case 80: {
+                bitField0_ |= 0x00000100;
+                forwardLocked_ = input.readBool();
+                break;
+              }
+              case 88: {
+                bitField0_ |= 0x00000200;
+                secured_ = input.readBool();
+                break;
+              }
+              case 96: {
+                bitField0_ |= 0x00000400;
+                versionCode_ = input.readInt32();
+                break;
+              }
+              case 106: {
+                bitField0_ |= 0x00000800;
+                downloadAuthCookieName_ = input.readBytes();
+                break;
+              }
+              case 114: {
+                bitField0_ |= 0x00001000;
+                downloadAuthCookieValue_ = input.readBytes();
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e.getMessage()).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Play.internal_static_GetAssetResponse_InstallAsset_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Play.internal_static_GetAssetResponse_InstallAsset_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Play.GetAssetResponse.InstallAsset.class, Play.GetAssetResponse.InstallAsset.Builder.class);
+      }
+
+      public static com.google.protobuf.Parser<InstallAsset> PARSER =
+          new com.google.protobuf.AbstractParser<InstallAsset>() {
+        public InstallAsset parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new InstallAsset(input, extensionRegistry);
+        }
+      };
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<InstallAsset> getParserForType() {
+        return PARSER;
+      }
+
+      private int bitField0_;
+      // optional string assetId = 2;
+      public static final int ASSETID_FIELD_NUMBER = 2;
+      private java.lang.Object assetId_;
+      /**
+       * <code>optional string assetId = 2;</code>
+       */
+      public boolean hasAssetId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional string assetId = 2;</code>
+       */
+      public java.lang.String getAssetId() {
+        java.lang.Object ref = assetId_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            assetId_ = s;
+          }
+          return s;
+        }
+      }
+      /**
+       * <code>optional string assetId = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAssetIdBytes() {
+        java.lang.Object ref = assetId_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          assetId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      // optional string assetName = 3;
+      public static final int ASSETNAME_FIELD_NUMBER = 3;
+      private java.lang.Object assetName_;
+      /**
+       * <code>optional string assetName = 3;</code>
+       */
+      public boolean hasAssetName() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional string assetName = 3;</code>
+       */
+      public java.lang.String getAssetName() {
+        java.lang.Object ref = assetName_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            assetName_ = s;
+          }
+          return s;
+        }
+      }
+      /**
+       * <code>optional string assetName = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAssetNameBytes() {
+        java.lang.Object ref = assetName_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          assetName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      // optional string assetType = 4;
+      public static final int ASSETTYPE_FIELD_NUMBER = 4;
+      private java.lang.Object assetType_;
+      /**
+       * <code>optional string assetType = 4;</code>
+       */
+      public boolean hasAssetType() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional string assetType = 4;</code>
+       */
+      public java.lang.String getAssetType() {
+        java.lang.Object ref = assetType_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            assetType_ = s;
+          }
+          return s;
+        }
+      }
+      /**
+       * <code>optional string assetType = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAssetTypeBytes() {
+        java.lang.Object ref = assetType_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          assetType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      // optional string assetPackage = 5;
+      public static final int ASSETPACKAGE_FIELD_NUMBER = 5;
+      private java.lang.Object assetPackage_;
+      /**
+       * <code>optional string assetPackage = 5;</code>
+       */
+      public boolean hasAssetPackage() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional string assetPackage = 5;</code>
+       */
+      public java.lang.String getAssetPackage() {
+        java.lang.Object ref = assetPackage_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            assetPackage_ = s;
+          }
+          return s;
+        }
+      }
+      /**
+       * <code>optional string assetPackage = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAssetPackageBytes() {
+        java.lang.Object ref = assetPackage_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          assetPackage_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      // optional string blobUrl = 6;
+      public static final int BLOBURL_FIELD_NUMBER = 6;
+      private java.lang.Object blobUrl_;
+      /**
+       * <code>optional string blobUrl = 6;</code>
+       */
+      public boolean hasBlobUrl() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional string blobUrl = 6;</code>
+       */
+      public java.lang.String getBlobUrl() {
+        java.lang.Object ref = blobUrl_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            blobUrl_ = s;
+          }
+          return s;
+        }
+      }
+      /**
+       * <code>optional string blobUrl = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getBlobUrlBytes() {
+        java.lang.Object ref = blobUrl_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          blobUrl_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      // optional string assetSignature = 7;
+      public static final int ASSETSIGNATURE_FIELD_NUMBER = 7;
+      private java.lang.Object assetSignature_;
+      /**
+       * <code>optional string assetSignature = 7;</code>
+       */
+      public boolean hasAssetSignature() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional string assetSignature = 7;</code>
+       */
+      public java.lang.String getAssetSignature() {
+        java.lang.Object ref = assetSignature_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            assetSignature_ = s;
+          }
+          return s;
+        }
+      }
+      /**
+       * <code>optional string assetSignature = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAssetSignatureBytes() {
+        java.lang.Object ref = assetSignature_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          assetSignature_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      // optional uint64 assetSize = 8;
+      public static final int ASSETSIZE_FIELD_NUMBER = 8;
+      private long assetSize_;
+      /**
+       * <code>optional uint64 assetSize = 8;</code>
+       */
+      public boolean hasAssetSize() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>optional uint64 assetSize = 8;</code>
+       */
+      public long getAssetSize() {
+        return assetSize_;
+      }
+
+      // optional uint64 refundTimeout = 9;
+      public static final int REFUNDTIMEOUT_FIELD_NUMBER = 9;
+      private long refundTimeout_;
+      /**
+       * <code>optional uint64 refundTimeout = 9;</code>
+       */
+      public boolean hasRefundTimeout() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>optional uint64 refundTimeout = 9;</code>
+       */
+      public long getRefundTimeout() {
+        return refundTimeout_;
+      }
+
+      // optional bool forwardLocked = 10;
+      public static final int FORWARDLOCKED_FIELD_NUMBER = 10;
+      private boolean forwardLocked_;
+      /**
+       * <code>optional bool forwardLocked = 10;</code>
+       */
+      public boolean hasForwardLocked() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       * <code>optional bool forwardLocked = 10;</code>
+       */
+      public boolean getForwardLocked() {
+        return forwardLocked_;
+      }
+
+      // optional bool secured = 11;
+      public static final int SECURED_FIELD_NUMBER = 11;
+      private boolean secured_;
+      /**
+       * <code>optional bool secured = 11;</code>
+       */
+      public boolean hasSecured() {
+        return ((bitField0_ & 0x00000200) == 0x00000200);
+      }
+      /**
+       * <code>optional bool secured = 11;</code>
+       */
+      public boolean getSecured() {
+        return secured_;
+      }
+
+      // optional int32 versionCode = 12;
+      public static final int VERSIONCODE_FIELD_NUMBER = 12;
+      private int versionCode_;
+      /**
+       * <code>optional int32 versionCode = 12;</code>
+       */
+      public boolean hasVersionCode() {
+        return ((bitField0_ & 0x00000400) == 0x00000400);
+      }
+      /**
+       * <code>optional int32 versionCode = 12;</code>
+       */
+      public int getVersionCode() {
+        return versionCode_;
+      }
+
+      // optional string downloadAuthCookieName = 13;
+      public static final int DOWNLOADAUTHCOOKIENAME_FIELD_NUMBER = 13;
+      private java.lang.Object downloadAuthCookieName_;
+      /**
+       * <code>optional string downloadAuthCookieName = 13;</code>
+       */
+      public boolean hasDownloadAuthCookieName() {
+        return ((bitField0_ & 0x00000800) == 0x00000800);
+      }
+      /**
+       * <code>optional string downloadAuthCookieName = 13;</code>
+       */
+      public java.lang.String getDownloadAuthCookieName() {
+        java.lang.Object ref = downloadAuthCookieName_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            downloadAuthCookieName_ = s;
+          }
+          return s;
+        }
+      }
+      /**
+       * <code>optional string downloadAuthCookieName = 13;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDownloadAuthCookieNameBytes() {
+        java.lang.Object ref = downloadAuthCookieName_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          downloadAuthCookieName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      // optional string downloadAuthCookieValue = 14;
+      public static final int DOWNLOADAUTHCOOKIEVALUE_FIELD_NUMBER = 14;
+      private java.lang.Object downloadAuthCookieValue_;
+      /**
+       * <code>optional string downloadAuthCookieValue = 14;</code>
+       */
+      public boolean hasDownloadAuthCookieValue() {
+        return ((bitField0_ & 0x00001000) == 0x00001000);
+      }
+      /**
+       * <code>optional string downloadAuthCookieValue = 14;</code>
+       */
+      public java.lang.String getDownloadAuthCookieValue() {
+        java.lang.Object ref = downloadAuthCookieValue_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            downloadAuthCookieValue_ = s;
+          }
+          return s;
+        }
+      }
+      /**
+       * <code>optional string downloadAuthCookieValue = 14;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDownloadAuthCookieValueBytes() {
+        java.lang.Object ref = downloadAuthCookieValue_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          downloadAuthCookieValue_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      private void initFields() {
+        assetId_ = "";
+        assetName_ = "";
+        assetType_ = "";
+        assetPackage_ = "";
+        blobUrl_ = "";
+        assetSignature_ = "";
+        assetSize_ = 0L;
+        refundTimeout_ = 0L;
+        forwardLocked_ = false;
+        secured_ = false;
+        versionCode_ = 0;
+        downloadAuthCookieName_ = "";
+        downloadAuthCookieValue_ = "";
+      }
+      private byte memoizedIsInitialized = -1;
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized != -1) return isInitialized == 1;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        getSerializedSize();
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          output.writeBytes(2, getAssetIdBytes());
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          output.writeBytes(3, getAssetNameBytes());
+        }
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          output.writeBytes(4, getAssetTypeBytes());
+        }
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          output.writeBytes(5, getAssetPackageBytes());
+        }
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          output.writeBytes(6, getBlobUrlBytes());
+        }
+        if (((bitField0_ & 0x00000020) == 0x00000020)) {
+          output.writeBytes(7, getAssetSignatureBytes());
+        }
+        if (((bitField0_ & 0x00000040) == 0x00000040)) {
+          output.writeUInt64(8, assetSize_);
+        }
+        if (((bitField0_ & 0x00000080) == 0x00000080)) {
+          output.writeUInt64(9, refundTimeout_);
+        }
+        if (((bitField0_ & 0x00000100) == 0x00000100)) {
+          output.writeBool(10, forwardLocked_);
+        }
+        if (((bitField0_ & 0x00000200) == 0x00000200)) {
+          output.writeBool(11, secured_);
+        }
+        if (((bitField0_ & 0x00000400) == 0x00000400)) {
+          output.writeInt32(12, versionCode_);
+        }
+        if (((bitField0_ & 0x00000800) == 0x00000800)) {
+          output.writeBytes(13, getDownloadAuthCookieNameBytes());
+        }
+        if (((bitField0_ & 0x00001000) == 0x00001000)) {
+          output.writeBytes(14, getDownloadAuthCookieValueBytes());
+        }
+        getUnknownFields().writeTo(output);
+      }
+
+      private int memoizedSerializedSize = -1;
+      public int getSerializedSize() {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(2, getAssetIdBytes());
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(3, getAssetNameBytes());
+        }
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(4, getAssetTypeBytes());
+        }
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(5, getAssetPackageBytes());
+        }
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(6, getBlobUrlBytes());
+        }
+        if (((bitField0_ & 0x00000020) == 0x00000020)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(7, getAssetSignatureBytes());
+        }
+        if (((bitField0_ & 0x00000040) == 0x00000040)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt64Size(8, assetSize_);
+        }
+        if (((bitField0_ & 0x00000080) == 0x00000080)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt64Size(9, refundTimeout_);
+        }
+        if (((bitField0_ & 0x00000100) == 0x00000100)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBoolSize(10, forwardLocked_);
+        }
+        if (((bitField0_ & 0x00000200) == 0x00000200)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBoolSize(11, secured_);
+        }
+        if (((bitField0_ & 0x00000400) == 0x00000400)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt32Size(12, versionCode_);
+        }
+        if (((bitField0_ & 0x00000800) == 0x00000800)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(13, getDownloadAuthCookieNameBytes());
+        }
+        if (((bitField0_ & 0x00001000) == 0x00001000)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(14, getDownloadAuthCookieValueBytes());
+        }
+        size += getUnknownFields().getSerializedSize();
+        memoizedSerializedSize = size;
+        return size;
+      }
+
+      private static final long serialVersionUID = 0L;
+      @java.lang.Override
+      protected java.lang.Object writeReplace()
+          throws java.io.ObjectStreamException {
+        return super.writeReplace();
+      }
+
+      public static Play.GetAssetResponse.InstallAsset parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static Play.GetAssetResponse.InstallAsset parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static Play.GetAssetResponse.InstallAsset parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static Play.GetAssetResponse.InstallAsset parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static Play.GetAssetResponse.InstallAsset parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input);
+      }
+      public static Play.GetAssetResponse.InstallAsset parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input, extensionRegistry);
+      }
+      public static Play.GetAssetResponse.InstallAsset parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return PARSER.parseDelimitedFrom(input);
+      }
+      public static Play.GetAssetResponse.InstallAsset parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      }
+      public static Play.GetAssetResponse.InstallAsset parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input);
+      }
+      public static Play.GetAssetResponse.InstallAsset parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input, extensionRegistry);
+      }
+
+      public static Builder newBuilder() { return Builder.create(); }
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder(Play.GetAssetResponse.InstallAsset prototype) {
+        return newBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() { return newBuilder(this); }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code GetAssetResponse.InstallAsset}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessage.Builder<Builder>
+         implements Play.GetAssetResponse.InstallAssetOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return Play.internal_static_GetAssetResponse_InstallAsset_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return Play.internal_static_GetAssetResponse_InstallAsset_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  Play.GetAssetResponse.InstallAsset.class, Play.GetAssetResponse.InstallAsset.Builder.class);
+        }
+
+        // Construct using Play.GetAssetResponse.InstallAsset.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          }
+        }
+        private static Builder create() {
+          return new Builder();
+        }
+
+        public Builder clear() {
+          super.clear();
+          assetId_ = "";
+          bitField0_ = (bitField0_ & ~0x00000001);
+          assetName_ = "";
+          bitField0_ = (bitField0_ & ~0x00000002);
+          assetType_ = "";
+          bitField0_ = (bitField0_ & ~0x00000004);
+          assetPackage_ = "";
+          bitField0_ = (bitField0_ & ~0x00000008);
+          blobUrl_ = "";
+          bitField0_ = (bitField0_ & ~0x00000010);
+          assetSignature_ = "";
+          bitField0_ = (bitField0_ & ~0x00000020);
+          assetSize_ = 0L;
+          bitField0_ = (bitField0_ & ~0x00000040);
+          refundTimeout_ = 0L;
+          bitField0_ = (bitField0_ & ~0x00000080);
+          forwardLocked_ = false;
+          bitField0_ = (bitField0_ & ~0x00000100);
+          secured_ = false;
+          bitField0_ = (bitField0_ & ~0x00000200);
+          versionCode_ = 0;
+          bitField0_ = (bitField0_ & ~0x00000400);
+          downloadAuthCookieName_ = "";
+          bitField0_ = (bitField0_ & ~0x00000800);
+          downloadAuthCookieValue_ = "";
+          bitField0_ = (bitField0_ & ~0x00001000);
+          return this;
+        }
+
+        public Builder clone() {
+          return create().mergeFrom(buildPartial());
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return Play.internal_static_GetAssetResponse_InstallAsset_descriptor;
+        }
+
+        public Play.GetAssetResponse.InstallAsset getDefaultInstanceForType() {
+          return Play.GetAssetResponse.InstallAsset.getDefaultInstance();
+        }
+
+        public Play.GetAssetResponse.InstallAsset build() {
+          Play.GetAssetResponse.InstallAsset result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        public Play.GetAssetResponse.InstallAsset buildPartial() {
+          Play.GetAssetResponse.InstallAsset result = new Play.GetAssetResponse.InstallAsset(this);
+          int from_bitField0_ = bitField0_;
+          int to_bitField0_ = 0;
+          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+            to_bitField0_ |= 0x00000001;
+          }
+          result.assetId_ = assetId_;
+          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+            to_bitField0_ |= 0x00000002;
+          }
+          result.assetName_ = assetName_;
+          if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+            to_bitField0_ |= 0x00000004;
+          }
+          result.assetType_ = assetType_;
+          if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+            to_bitField0_ |= 0x00000008;
+          }
+          result.assetPackage_ = assetPackage_;
+          if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+            to_bitField0_ |= 0x00000010;
+          }
+          result.blobUrl_ = blobUrl_;
+          if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+            to_bitField0_ |= 0x00000020;
+          }
+          result.assetSignature_ = assetSignature_;
+          if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+            to_bitField0_ |= 0x00000040;
+          }
+          result.assetSize_ = assetSize_;
+          if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+            to_bitField0_ |= 0x00000080;
+          }
+          result.refundTimeout_ = refundTimeout_;
+          if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+            to_bitField0_ |= 0x00000100;
+          }
+          result.forwardLocked_ = forwardLocked_;
+          if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+            to_bitField0_ |= 0x00000200;
+          }
+          result.secured_ = secured_;
+          if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+            to_bitField0_ |= 0x00000400;
+          }
+          result.versionCode_ = versionCode_;
+          if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
+            to_bitField0_ |= 0x00000800;
+          }
+          result.downloadAuthCookieName_ = downloadAuthCookieName_;
+          if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
+            to_bitField0_ |= 0x00001000;
+          }
+          result.downloadAuthCookieValue_ = downloadAuthCookieValue_;
+          result.bitField0_ = to_bitField0_;
+          onBuilt();
+          return result;
+        }
+
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof Play.GetAssetResponse.InstallAsset) {
+            return mergeFrom((Play.GetAssetResponse.InstallAsset)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(Play.GetAssetResponse.InstallAsset other) {
+          if (other == Play.GetAssetResponse.InstallAsset.getDefaultInstance()) return this;
+          if (other.hasAssetId()) {
+            bitField0_ |= 0x00000001;
+            assetId_ = other.assetId_;
+            onChanged();
+          }
+          if (other.hasAssetName()) {
+            bitField0_ |= 0x00000002;
+            assetName_ = other.assetName_;
+            onChanged();
+          }
+          if (other.hasAssetType()) {
+            bitField0_ |= 0x00000004;
+            assetType_ = other.assetType_;
+            onChanged();
+          }
+          if (other.hasAssetPackage()) {
+            bitField0_ |= 0x00000008;
+            assetPackage_ = other.assetPackage_;
+            onChanged();
+          }
+          if (other.hasBlobUrl()) {
+            bitField0_ |= 0x00000010;
+            blobUrl_ = other.blobUrl_;
+            onChanged();
+          }
+          if (other.hasAssetSignature()) {
+            bitField0_ |= 0x00000020;
+            assetSignature_ = other.assetSignature_;
+            onChanged();
+          }
+          if (other.hasAssetSize()) {
+            setAssetSize(other.getAssetSize());
+          }
+          if (other.hasRefundTimeout()) {
+            setRefundTimeout(other.getRefundTimeout());
+          }
+          if (other.hasForwardLocked()) {
+            setForwardLocked(other.getForwardLocked());
+          }
+          if (other.hasSecured()) {
+            setSecured(other.getSecured());
+          }
+          if (other.hasVersionCode()) {
+            setVersionCode(other.getVersionCode());
+          }
+          if (other.hasDownloadAuthCookieName()) {
+            bitField0_ |= 0x00000800;
+            downloadAuthCookieName_ = other.downloadAuthCookieName_;
+            onChanged();
+          }
+          if (other.hasDownloadAuthCookieValue()) {
+            bitField0_ |= 0x00001000;
+            downloadAuthCookieValue_ = other.downloadAuthCookieValue_;
+            onChanged();
+          }
+          this.mergeUnknownFields(other.getUnknownFields());
+          return this;
+        }
+
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          Play.GetAssetResponse.InstallAsset parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (Play.GetAssetResponse.InstallAsset) e.getUnfinishedMessage();
+            throw e;
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+        private int bitField0_;
+
+        // optional string assetId = 2;
+        private java.lang.Object assetId_ = "";
+        /**
+         * <code>optional string assetId = 2;</code>
+         */
+        public boolean hasAssetId() {
+          return ((bitField0_ & 0x00000001) == 0x00000001);
+        }
+        /**
+         * <code>optional string assetId = 2;</code>
+         */
+        public java.lang.String getAssetId() {
+          java.lang.Object ref = assetId_;
+          if (!(ref instanceof java.lang.String)) {
+            java.lang.String s = ((com.google.protobuf.ByteString) ref)
+                .toStringUtf8();
+            assetId_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>optional string assetId = 2;</code>
+         */
+        public com.google.protobuf.ByteString
+            getAssetIdBytes() {
+          java.lang.Object ref = assetId_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            assetId_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>optional string assetId = 2;</code>
+         */
+        public Builder setAssetId(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+          assetId_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string assetId = 2;</code>
+         */
+        public Builder clearAssetId() {
+          bitField0_ = (bitField0_ & ~0x00000001);
+          assetId_ = getDefaultInstance().getAssetId();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string assetId = 2;</code>
+         */
+        public Builder setAssetIdBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+          assetId_ = value;
+          onChanged();
+          return this;
+        }
+
+        // optional string assetName = 3;
+        private java.lang.Object assetName_ = "";
+        /**
+         * <code>optional string assetName = 3;</code>
+         */
+        public boolean hasAssetName() {
+          return ((bitField0_ & 0x00000002) == 0x00000002);
+        }
+        /**
+         * <code>optional string assetName = 3;</code>
+         */
+        public java.lang.String getAssetName() {
+          java.lang.Object ref = assetName_;
+          if (!(ref instanceof java.lang.String)) {
+            java.lang.String s = ((com.google.protobuf.ByteString) ref)
+                .toStringUtf8();
+            assetName_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>optional string assetName = 3;</code>
+         */
+        public com.google.protobuf.ByteString
+            getAssetNameBytes() {
+          java.lang.Object ref = assetName_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            assetName_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>optional string assetName = 3;</code>
+         */
+        public Builder setAssetName(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+          assetName_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string assetName = 3;</code>
+         */
+        public Builder clearAssetName() {
+          bitField0_ = (bitField0_ & ~0x00000002);
+          assetName_ = getDefaultInstance().getAssetName();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string assetName = 3;</code>
+         */
+        public Builder setAssetNameBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+          assetName_ = value;
+          onChanged();
+          return this;
+        }
+
+        // optional string assetType = 4;
+        private java.lang.Object assetType_ = "";
+        /**
+         * <code>optional string assetType = 4;</code>
+         */
+        public boolean hasAssetType() {
+          return ((bitField0_ & 0x00000004) == 0x00000004);
+        }
+        /**
+         * <code>optional string assetType = 4;</code>
+         */
+        public java.lang.String getAssetType() {
+          java.lang.Object ref = assetType_;
+          if (!(ref instanceof java.lang.String)) {
+            java.lang.String s = ((com.google.protobuf.ByteString) ref)
+                .toStringUtf8();
+            assetType_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>optional string assetType = 4;</code>
+         */
+        public com.google.protobuf.ByteString
+            getAssetTypeBytes() {
+          java.lang.Object ref = assetType_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            assetType_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>optional string assetType = 4;</code>
+         */
+        public Builder setAssetType(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+          assetType_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string assetType = 4;</code>
+         */
+        public Builder clearAssetType() {
+          bitField0_ = (bitField0_ & ~0x00000004);
+          assetType_ = getDefaultInstance().getAssetType();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string assetType = 4;</code>
+         */
+        public Builder setAssetTypeBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+          assetType_ = value;
+          onChanged();
+          return this;
+        }
+
+        // optional string assetPackage = 5;
+        private java.lang.Object assetPackage_ = "";
+        /**
+         * <code>optional string assetPackage = 5;</code>
+         */
+        public boolean hasAssetPackage() {
+          return ((bitField0_ & 0x00000008) == 0x00000008);
+        }
+        /**
+         * <code>optional string assetPackage = 5;</code>
+         */
+        public java.lang.String getAssetPackage() {
+          java.lang.Object ref = assetPackage_;
+          if (!(ref instanceof java.lang.String)) {
+            java.lang.String s = ((com.google.protobuf.ByteString) ref)
+                .toStringUtf8();
+            assetPackage_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>optional string assetPackage = 5;</code>
+         */
+        public com.google.protobuf.ByteString
+            getAssetPackageBytes() {
+          java.lang.Object ref = assetPackage_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            assetPackage_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>optional string assetPackage = 5;</code>
+         */
+        public Builder setAssetPackage(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+          assetPackage_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string assetPackage = 5;</code>
+         */
+        public Builder clearAssetPackage() {
+          bitField0_ = (bitField0_ & ~0x00000008);
+          assetPackage_ = getDefaultInstance().getAssetPackage();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string assetPackage = 5;</code>
+         */
+        public Builder setAssetPackageBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+          assetPackage_ = value;
+          onChanged();
+          return this;
+        }
+
+        // optional string blobUrl = 6;
+        private java.lang.Object blobUrl_ = "";
+        /**
+         * <code>optional string blobUrl = 6;</code>
+         */
+        public boolean hasBlobUrl() {
+          return ((bitField0_ & 0x00000010) == 0x00000010);
+        }
+        /**
+         * <code>optional string blobUrl = 6;</code>
+         */
+        public java.lang.String getBlobUrl() {
+          java.lang.Object ref = blobUrl_;
+          if (!(ref instanceof java.lang.String)) {
+            java.lang.String s = ((com.google.protobuf.ByteString) ref)
+                .toStringUtf8();
+            blobUrl_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>optional string blobUrl = 6;</code>
+         */
+        public com.google.protobuf.ByteString
+            getBlobUrlBytes() {
+          java.lang.Object ref = blobUrl_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            blobUrl_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>optional string blobUrl = 6;</code>
+         */
+        public Builder setBlobUrl(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+          blobUrl_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string blobUrl = 6;</code>
+         */
+        public Builder clearBlobUrl() {
+          bitField0_ = (bitField0_ & ~0x00000010);
+          blobUrl_ = getDefaultInstance().getBlobUrl();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string blobUrl = 6;</code>
+         */
+        public Builder setBlobUrlBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+          blobUrl_ = value;
+          onChanged();
+          return this;
+        }
+
+        // optional string assetSignature = 7;
+        private java.lang.Object assetSignature_ = "";
+        /**
+         * <code>optional string assetSignature = 7;</code>
+         */
+        public boolean hasAssetSignature() {
+          return ((bitField0_ & 0x00000020) == 0x00000020);
+        }
+        /**
+         * <code>optional string assetSignature = 7;</code>
+         */
+        public java.lang.String getAssetSignature() {
+          java.lang.Object ref = assetSignature_;
+          if (!(ref instanceof java.lang.String)) {
+            java.lang.String s = ((com.google.protobuf.ByteString) ref)
+                .toStringUtf8();
+            assetSignature_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>optional string assetSignature = 7;</code>
+         */
+        public com.google.protobuf.ByteString
+            getAssetSignatureBytes() {
+          java.lang.Object ref = assetSignature_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            assetSignature_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>optional string assetSignature = 7;</code>
+         */
+        public Builder setAssetSignature(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+          assetSignature_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string assetSignature = 7;</code>
+         */
+        public Builder clearAssetSignature() {
+          bitField0_ = (bitField0_ & ~0x00000020);
+          assetSignature_ = getDefaultInstance().getAssetSignature();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string assetSignature = 7;</code>
+         */
+        public Builder setAssetSignatureBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+          assetSignature_ = value;
+          onChanged();
+          return this;
+        }
+
+        // optional uint64 assetSize = 8;
+        private long assetSize_ ;
+        /**
+         * <code>optional uint64 assetSize = 8;</code>
+         */
+        public boolean hasAssetSize() {
+          return ((bitField0_ & 0x00000040) == 0x00000040);
+        }
+        /**
+         * <code>optional uint64 assetSize = 8;</code>
+         */
+        public long getAssetSize() {
+          return assetSize_;
+        }
+        /**
+         * <code>optional uint64 assetSize = 8;</code>
+         */
+        public Builder setAssetSize(long value) {
+          bitField0_ |= 0x00000040;
+          assetSize_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional uint64 assetSize = 8;</code>
+         */
+        public Builder clearAssetSize() {
+          bitField0_ = (bitField0_ & ~0x00000040);
+          assetSize_ = 0L;
+          onChanged();
+          return this;
+        }
+
+        // optional uint64 refundTimeout = 9;
+        private long refundTimeout_ ;
+        /**
+         * <code>optional uint64 refundTimeout = 9;</code>
+         */
+        public boolean hasRefundTimeout() {
+          return ((bitField0_ & 0x00000080) == 0x00000080);
+        }
+        /**
+         * <code>optional uint64 refundTimeout = 9;</code>
+         */
+        public long getRefundTimeout() {
+          return refundTimeout_;
+        }
+        /**
+         * <code>optional uint64 refundTimeout = 9;</code>
+         */
+        public Builder setRefundTimeout(long value) {
+          bitField0_ |= 0x00000080;
+          refundTimeout_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional uint64 refundTimeout = 9;</code>
+         */
+        public Builder clearRefundTimeout() {
+          bitField0_ = (bitField0_ & ~0x00000080);
+          refundTimeout_ = 0L;
+          onChanged();
+          return this;
+        }
+
+        // optional bool forwardLocked = 10;
+        private boolean forwardLocked_ ;
+        /**
+         * <code>optional bool forwardLocked = 10;</code>
+         */
+        public boolean hasForwardLocked() {
+          return ((bitField0_ & 0x00000100) == 0x00000100);
+        }
+        /**
+         * <code>optional bool forwardLocked = 10;</code>
+         */
+        public boolean getForwardLocked() {
+          return forwardLocked_;
+        }
+        /**
+         * <code>optional bool forwardLocked = 10;</code>
+         */
+        public Builder setForwardLocked(boolean value) {
+          bitField0_ |= 0x00000100;
+          forwardLocked_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional bool forwardLocked = 10;</code>
+         */
+        public Builder clearForwardLocked() {
+          bitField0_ = (bitField0_ & ~0x00000100);
+          forwardLocked_ = false;
+          onChanged();
+          return this;
+        }
+
+        // optional bool secured = 11;
+        private boolean secured_ ;
+        /**
+         * <code>optional bool secured = 11;</code>
+         */
+        public boolean hasSecured() {
+          return ((bitField0_ & 0x00000200) == 0x00000200);
+        }
+        /**
+         * <code>optional bool secured = 11;</code>
+         */
+        public boolean getSecured() {
+          return secured_;
+        }
+        /**
+         * <code>optional bool secured = 11;</code>
+         */
+        public Builder setSecured(boolean value) {
+          bitField0_ |= 0x00000200;
+          secured_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional bool secured = 11;</code>
+         */
+        public Builder clearSecured() {
+          bitField0_ = (bitField0_ & ~0x00000200);
+          secured_ = false;
+          onChanged();
+          return this;
+        }
+
+        // optional int32 versionCode = 12;
+        private int versionCode_ ;
+        /**
+         * <code>optional int32 versionCode = 12;</code>
+         */
+        public boolean hasVersionCode() {
+          return ((bitField0_ & 0x00000400) == 0x00000400);
+        }
+        /**
+         * <code>optional int32 versionCode = 12;</code>
+         */
+        public int getVersionCode() {
+          return versionCode_;
+        }
+        /**
+         * <code>optional int32 versionCode = 12;</code>
+         */
+        public Builder setVersionCode(int value) {
+          bitField0_ |= 0x00000400;
+          versionCode_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional int32 versionCode = 12;</code>
+         */
+        public Builder clearVersionCode() {
+          bitField0_ = (bitField0_ & ~0x00000400);
+          versionCode_ = 0;
+          onChanged();
+          return this;
+        }
+
+        // optional string downloadAuthCookieName = 13;
+        private java.lang.Object downloadAuthCookieName_ = "";
+        /**
+         * <code>optional string downloadAuthCookieName = 13;</code>
+         */
+        public boolean hasDownloadAuthCookieName() {
+          return ((bitField0_ & 0x00000800) == 0x00000800);
+        }
+        /**
+         * <code>optional string downloadAuthCookieName = 13;</code>
+         */
+        public java.lang.String getDownloadAuthCookieName() {
+          java.lang.Object ref = downloadAuthCookieName_;
+          if (!(ref instanceof java.lang.String)) {
+            java.lang.String s = ((com.google.protobuf.ByteString) ref)
+                .toStringUtf8();
+            downloadAuthCookieName_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>optional string downloadAuthCookieName = 13;</code>
+         */
+        public com.google.protobuf.ByteString
+            getDownloadAuthCookieNameBytes() {
+          java.lang.Object ref = downloadAuthCookieName_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            downloadAuthCookieName_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>optional string downloadAuthCookieName = 13;</code>
+         */
+        public Builder setDownloadAuthCookieName(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000800;
+          downloadAuthCookieName_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string downloadAuthCookieName = 13;</code>
+         */
+        public Builder clearDownloadAuthCookieName() {
+          bitField0_ = (bitField0_ & ~0x00000800);
+          downloadAuthCookieName_ = getDefaultInstance().getDownloadAuthCookieName();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string downloadAuthCookieName = 13;</code>
+         */
+        public Builder setDownloadAuthCookieNameBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000800;
+          downloadAuthCookieName_ = value;
+          onChanged();
+          return this;
+        }
+
+        // optional string downloadAuthCookieValue = 14;
+        private java.lang.Object downloadAuthCookieValue_ = "";
+        /**
+         * <code>optional string downloadAuthCookieValue = 14;</code>
+         */
+        public boolean hasDownloadAuthCookieValue() {
+          return ((bitField0_ & 0x00001000) == 0x00001000);
+        }
+        /**
+         * <code>optional string downloadAuthCookieValue = 14;</code>
+         */
+        public java.lang.String getDownloadAuthCookieValue() {
+          java.lang.Object ref = downloadAuthCookieValue_;
+          if (!(ref instanceof java.lang.String)) {
+            java.lang.String s = ((com.google.protobuf.ByteString) ref)
+                .toStringUtf8();
+            downloadAuthCookieValue_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>optional string downloadAuthCookieValue = 14;</code>
+         */
+        public com.google.protobuf.ByteString
+            getDownloadAuthCookieValueBytes() {
+          java.lang.Object ref = downloadAuthCookieValue_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            downloadAuthCookieValue_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>optional string downloadAuthCookieValue = 14;</code>
+         */
+        public Builder setDownloadAuthCookieValue(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00001000;
+          downloadAuthCookieValue_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string downloadAuthCookieValue = 14;</code>
+         */
+        public Builder clearDownloadAuthCookieValue() {
+          bitField0_ = (bitField0_ & ~0x00001000);
+          downloadAuthCookieValue_ = getDefaultInstance().getDownloadAuthCookieValue();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string downloadAuthCookieValue = 14;</code>
+         */
+        public Builder setDownloadAuthCookieValueBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00001000;
+          downloadAuthCookieValue_ = value;
+          onChanged();
+          return this;
+        }
+
+        // @@protoc_insertion_point(builder_scope:GetAssetResponse.InstallAsset)
+      }
+
+      static {
+        defaultInstance = new InstallAsset(true);
+        defaultInstance.initFields();
+      }
+
+      // @@protoc_insertion_point(class_scope:GetAssetResponse.InstallAsset)
+    }
+
+    // repeated group InstallAsset = 1 {
+    public static final int INSTALLASSET_FIELD_NUMBER = 1;
+    private java.util.List<Play.GetAssetResponse.InstallAsset> installAsset_;
+    /**
+     * <code>repeated group InstallAsset = 1 { ... }</code>
+     */
+    public java.util.List<Play.GetAssetResponse.InstallAsset> getInstallAssetList() {
+      return installAsset_;
+    }
+    /**
+     * <code>repeated group InstallAsset = 1 { ... }</code>
+     */
+    public java.util.List<? extends Play.GetAssetResponse.InstallAssetOrBuilder> 
+        getInstallAssetOrBuilderList() {
+      return installAsset_;
+    }
+    /**
+     * <code>repeated group InstallAsset = 1 { ... }</code>
+     */
+    public int getInstallAssetCount() {
+      return installAsset_.size();
+    }
+    /**
+     * <code>repeated group InstallAsset = 1 { ... }</code>
+     */
+    public Play.GetAssetResponse.InstallAsset getInstallAsset(int index) {
+      return installAsset_.get(index);
+    }
+    /**
+     * <code>repeated group InstallAsset = 1 { ... }</code>
+     */
+    public Play.GetAssetResponse.InstallAssetOrBuilder getInstallAssetOrBuilder(
+        int index) {
+      return installAsset_.get(index);
+    }
+
+    private void initFields() {
+      installAsset_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < installAsset_.size(); i++) {
+        output.writeGroup(1, installAsset_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < installAsset_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeGroupSize(1, installAsset_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static Play.GetAssetResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Play.GetAssetResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Play.GetAssetResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Play.GetAssetResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Play.GetAssetResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static Play.GetAssetResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static Play.GetAssetResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static Play.GetAssetResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static Play.GetAssetResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static Play.GetAssetResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(Play.GetAssetResponse prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code GetAssetResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements Play.GetAssetResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Play.internal_static_GetAssetResponse_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Play.internal_static_GetAssetResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Play.GetAssetResponse.class, Play.GetAssetResponse.Builder.class);
+      }
+
+      // Construct using Play.GetAssetResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getInstallAssetFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (installAssetBuilder_ == null) {
+          installAsset_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          installAssetBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Play.internal_static_GetAssetResponse_descriptor;
+      }
+
+      public Play.GetAssetResponse getDefaultInstanceForType() {
+        return Play.GetAssetResponse.getDefaultInstance();
+      }
+
+      public Play.GetAssetResponse build() {
+        Play.GetAssetResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public Play.GetAssetResponse buildPartial() {
+        Play.GetAssetResponse result = new Play.GetAssetResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (installAssetBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            installAsset_ = java.util.Collections.unmodifiableList(installAsset_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.installAsset_ = installAsset_;
+        } else {
+          result.installAsset_ = installAssetBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Play.GetAssetResponse) {
+          return mergeFrom((Play.GetAssetResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Play.GetAssetResponse other) {
+        if (other == Play.GetAssetResponse.getDefaultInstance()) return this;
+        if (installAssetBuilder_ == null) {
+          if (!other.installAsset_.isEmpty()) {
+            if (installAsset_.isEmpty()) {
+              installAsset_ = other.installAsset_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureInstallAssetIsMutable();
+              installAsset_.addAll(other.installAsset_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.installAsset_.isEmpty()) {
+            if (installAssetBuilder_.isEmpty()) {
+              installAssetBuilder_.dispose();
+              installAssetBuilder_ = null;
+              installAsset_ = other.installAsset_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              installAssetBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getInstallAssetFieldBuilder() : null;
+            } else {
+              installAssetBuilder_.addAllMessages(other.installAsset_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Play.GetAssetResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Play.GetAssetResponse) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // repeated group InstallAsset = 1 {
+      private java.util.List<Play.GetAssetResponse.InstallAsset> installAsset_ =
+        java.util.Collections.emptyList();
+      private void ensureInstallAssetIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          installAsset_ = new java.util.ArrayList<Play.GetAssetResponse.InstallAsset>(installAsset_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          Play.GetAssetResponse.InstallAsset, Play.GetAssetResponse.InstallAsset.Builder, Play.GetAssetResponse.InstallAssetOrBuilder> installAssetBuilder_;
+
+      /**
+       * <code>repeated group InstallAsset = 1 { ... }</code>
+       */
+      public java.util.List<Play.GetAssetResponse.InstallAsset> getInstallAssetList() {
+        if (installAssetBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(installAsset_);
+        } else {
+          return installAssetBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated group InstallAsset = 1 { ... }</code>
+       */
+      public int getInstallAssetCount() {
+        if (installAssetBuilder_ == null) {
+          return installAsset_.size();
+        } else {
+          return installAssetBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated group InstallAsset = 1 { ... }</code>
+       */
+      public Play.GetAssetResponse.InstallAsset getInstallAsset(int index) {
+        if (installAssetBuilder_ == null) {
+          return installAsset_.get(index);
+        } else {
+          return installAssetBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated group InstallAsset = 1 { ... }</code>
+       */
+      public Builder setInstallAsset(
+          int index, Play.GetAssetResponse.InstallAsset value) {
+        if (installAssetBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureInstallAssetIsMutable();
+          installAsset_.set(index, value);
+          onChanged();
+        } else {
+          installAssetBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated group InstallAsset = 1 { ... }</code>
+       */
+      public Builder setInstallAsset(
+          int index, Play.GetAssetResponse.InstallAsset.Builder builderForValue) {
+        if (installAssetBuilder_ == null) {
+          ensureInstallAssetIsMutable();
+          installAsset_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          installAssetBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated group InstallAsset = 1 { ... }</code>
+       */
+      public Builder addInstallAsset(Play.GetAssetResponse.InstallAsset value) {
+        if (installAssetBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureInstallAssetIsMutable();
+          installAsset_.add(value);
+          onChanged();
+        } else {
+          installAssetBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated group InstallAsset = 1 { ... }</code>
+       */
+      public Builder addInstallAsset(
+          int index, Play.GetAssetResponse.InstallAsset value) {
+        if (installAssetBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureInstallAssetIsMutable();
+          installAsset_.add(index, value);
+          onChanged();
+        } else {
+          installAssetBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated group InstallAsset = 1 { ... }</code>
+       */
+      public Builder addInstallAsset(
+          Play.GetAssetResponse.InstallAsset.Builder builderForValue) {
+        if (installAssetBuilder_ == null) {
+          ensureInstallAssetIsMutable();
+          installAsset_.add(builderForValue.build());
+          onChanged();
+        } else {
+          installAssetBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated group InstallAsset = 1 { ... }</code>
+       */
+      public Builder addInstallAsset(
+          int index, Play.GetAssetResponse.InstallAsset.Builder builderForValue) {
+        if (installAssetBuilder_ == null) {
+          ensureInstallAssetIsMutable();
+          installAsset_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          installAssetBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated group InstallAsset = 1 { ... }</code>
+       */
+      public Builder addAllInstallAsset(
+          java.lang.Iterable<? extends Play.GetAssetResponse.InstallAsset> values) {
+        if (installAssetBuilder_ == null) {
+          ensureInstallAssetIsMutable();
+          super.addAll(values, installAsset_);
+          onChanged();
+        } else {
+          installAssetBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated group InstallAsset = 1 { ... }</code>
+       */
+      public Builder clearInstallAsset() {
+        if (installAssetBuilder_ == null) {
+          installAsset_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          installAssetBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated group InstallAsset = 1 { ... }</code>
+       */
+      public Builder removeInstallAsset(int index) {
+        if (installAssetBuilder_ == null) {
+          ensureInstallAssetIsMutable();
+          installAsset_.remove(index);
+          onChanged();
+        } else {
+          installAssetBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated group InstallAsset = 1 { ... }</code>
+       */
+      public Play.GetAssetResponse.InstallAsset.Builder getInstallAssetBuilder(
+          int index) {
+        return getInstallAssetFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated group InstallAsset = 1 { ... }</code>
+       */
+      public Play.GetAssetResponse.InstallAssetOrBuilder getInstallAssetOrBuilder(
+          int index) {
+        if (installAssetBuilder_ == null) {
+          return installAsset_.get(index);  } else {
+          return installAssetBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated group InstallAsset = 1 { ... }</code>
+       */
+      public java.util.List<? extends Play.GetAssetResponse.InstallAssetOrBuilder> 
+           getInstallAssetOrBuilderList() {
+        if (installAssetBuilder_ != null) {
+          return installAssetBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(installAsset_);
+        }
+      }
+      /**
+       * <code>repeated group InstallAsset = 1 { ... }</code>
+       */
+      public Play.GetAssetResponse.InstallAsset.Builder addInstallAssetBuilder() {
+        return getInstallAssetFieldBuilder().addBuilder(
+            Play.GetAssetResponse.InstallAsset.getDefaultInstance());
+      }
+      /**
+       * <code>repeated group InstallAsset = 1 { ... }</code>
+       */
+      public Play.GetAssetResponse.InstallAsset.Builder addInstallAssetBuilder(
+          int index) {
+        return getInstallAssetFieldBuilder().addBuilder(
+            index, Play.GetAssetResponse.InstallAsset.getDefaultInstance());
+      }
+      /**
+       * <code>repeated group InstallAsset = 1 { ... }</code>
+       */
+      public java.util.List<Play.GetAssetResponse.InstallAsset.Builder> 
+           getInstallAssetBuilderList() {
+        return getInstallAssetFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          Play.GetAssetResponse.InstallAsset, Play.GetAssetResponse.InstallAsset.Builder, Play.GetAssetResponse.InstallAssetOrBuilder> 
+          getInstallAssetFieldBuilder() {
+        if (installAssetBuilder_ == null) {
+          installAssetBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              Play.GetAssetResponse.InstallAsset, Play.GetAssetResponse.InstallAsset.Builder, Play.GetAssetResponse.InstallAssetOrBuilder>(
+                  installAsset_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          installAsset_ = null;
+        }
+        return installAssetBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:GetAssetResponse)
+    }
+
+    static {
+      defaultInstance = new GetAssetResponse(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:GetAssetResponse)
+  }
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_RequestContext_descriptor;
   private static
@@ -2980,6 +5623,16 @@ public final class Play {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_App_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetAssetResponse_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_GetAssetResponse_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetAssetResponse_InstallAsset_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_GetAssetResponse_InstallAsset_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2996,7 +5649,17 @@ public final class Play {
       "(\t\022\024\n\014userLanguage\030\006 \001(\t\022\023\n\013userCountry\030" +
       "\007 \001(\t\022\025\n\roperatorAlpha\030\010 \001(\t\022\030\n\020simOpera" +
       "torAlpha\030\t \001(\t\022\027\n\017operatorNumeric\030\n \001(\t\022" +
-      "\032\n\022simOperatorNumeric\030\013 \001(\t"
+      "\032\n\022simOperatorNumeric\030\013 \001(\t\"\367\002\n\020GetAsset" +
+      "Response\0224\n\014installasset\030\001 \003(\n2\036.GetAsse" +
+      "tResponse.InstallAsset\032\254\002\n\014InstallAsset\022",
+      "\017\n\007assetId\030\002 \001(\t\022\021\n\tassetName\030\003 \001(\t\022\021\n\ta" +
+      "ssetType\030\004 \001(\t\022\024\n\014assetPackage\030\005 \001(\t\022\017\n\007" +
+      "blobUrl\030\006 \001(\t\022\026\n\016assetSignature\030\007 \001(\t\022\021\n" +
+      "\tassetSize\030\010 \001(\004\022\025\n\rrefundTimeout\030\t \001(\004\022" +
+      "\025\n\rforwardLocked\030\n \001(\010\022\017\n\007secured\030\013 \001(\010\022" +
+      "\023\n\013versionCode\030\014 \001(\005\022\036\n\026downloadAuthCook" +
+      "ieName\030\r \001(\t\022\037\n\027downloadAuthCookieValue\030" +
+      "\016 \001(\t"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -3015,6 +5678,18 @@ public final class Play {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_App_descriptor,
               new java.lang.String[] { "AuthSubToken", "IsSecure", "Version", "AndroidId", "DeviceAndSdkVersion", "UserLanguage", "UserCountry", "OperatorAlpha", "SimOperatorAlpha", "OperatorNumeric", "SimOperatorNumeric", });
+          internal_static_GetAssetResponse_descriptor =
+            getDescriptor().getMessageTypes().get(2);
+          internal_static_GetAssetResponse_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_GetAssetResponse_descriptor,
+              new java.lang.String[] { "InstallAsset", });
+          internal_static_GetAssetResponse_InstallAsset_descriptor =
+            internal_static_GetAssetResponse_descriptor.getNestedTypes().get(0);
+          internal_static_GetAssetResponse_InstallAsset_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_GetAssetResponse_InstallAsset_descriptor,
+              new java.lang.String[] { "AssetId", "AssetName", "AssetType", "AssetPackage", "BlobUrl", "AssetSignature", "AssetSize", "RefundTimeout", "ForwardLocked", "Secured", "VersionCode", "DownloadAuthCookieName", "DownloadAuthCookieValue", });
           return null;
         }
       };

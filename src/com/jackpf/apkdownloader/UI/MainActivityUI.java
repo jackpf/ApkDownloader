@@ -78,7 +78,7 @@ public class MainActivityUI extends UIInterface
             downloadsList.setOnItemClickListener(new OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Helpers.installFile(context, (File) adapter.getItem(position));
+                    Helpers.installFile(context, ((ApkFile) adapter.getItem(position)).getFile());
                 }
             });
             

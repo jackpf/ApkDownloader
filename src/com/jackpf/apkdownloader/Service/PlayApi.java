@@ -110,13 +110,13 @@ public class PlayApi
             GZIPInputStream gzis        = new GZIPInputStream(bais);
             InputStreamReader reader    = new InputStreamReader(gzis);
             BufferedReader in           = new BufferedReader(reader);
-    
+
             String line;
             StringBuilder sb = new StringBuilder();
             while ((line = in.readLine()) != null) {
                 sb.append(line);
             }
-            System.err.println(sb.toString());
+            
             return new App(packageName, extractDownloadPath(sb.toString()), extractMarketDA(sb.toString()));
         } catch (Exception e) {
             throw new PlayApiException(e.getMessage());
