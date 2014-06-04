@@ -82,7 +82,7 @@ public class MainActivityUI extends UIInterface
                 }
             });
             
-            Helpers.addContextMenu(downloadsList, R.menu._downloads_context_menu, new Helpers.ContextMenuCallback() {
+            /*Helpers.addContextMenu(downloadsList, R.menu._downloads_context_menu, new Helpers.ContextMenuCallback() {
                 @Override
                 public ActionMode startActionMode(ActionMode.Callback callback) {
                     return activity.startActionMode(callback);
@@ -100,7 +100,7 @@ public class MainActivityUI extends UIInterface
                     
                     return false;
                 }
-            });
+            });*/
         } else {
             adapter.notifyDataSetChanged();
         }
