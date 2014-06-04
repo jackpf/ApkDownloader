@@ -22,14 +22,32 @@
     <string name="pref_autoinstall_title">Automaticky inštalovať aplikácie</string>
     <string name="pref_autoinstall_summary">Automaticky inštalovať aplikácie po ich stiahnutí</string>
     
-    <string name="error_unrecognized_login">Nemožno overiť - prosím, zadajte platné prihlasovacie údaje v nastaveniach</string>
+    <string name="error_unrecognized_login">%1$s - prosím, zadajte platné prihlasovacie údaje v nastaveniach</string>
     <string name="error_api_exception">API výnimka: %s</string>
     <string name="error_empty_id">Prosím, zadajte platné ID aplikácie</string>
     <string name="error_no_connection">Žiadne pripojenie</string>
+    
+    <string name="pref_device_title">Zariadenie</string>
+    <string name="pref_device_summary">Toto sú informácie o zariadení, ktoré sú budú použité na odoslanie žiadosti na stiahnutie</string>
+    <string name="pref_sdk_version_title">Verzia SDK</string>
+    <string name="pref_sdk_version_summary">Verzia SDK</string>
+    <string name="pref_device_and_sdk_version_title">Zariadenie a verzia SDK</string>
+    <string name="pref_device_and_sdk_version_summary">Názov zariadenia a verzia SDK</string>
+    <string name="pref_operator_title">Operátor siete</string>
+    <string name="pref_operator_summary">Operátor siete</string>
+    <string name="pref_operator_numeric_title">Kód operátora siete</string>
+    <string name="pref_operator_numeric_summary">Číselný kód operátora siete</string>
+    <string name="pref_locale_title">Jazyk</string>
+    <string name="pref_locale_summary">Jazyk</string>
+    <string name="pref_country_title">Krajina</string>
+    <string name="pref_country_summary">Krajina</string>
+    <string name="pref_device_reset_title">Obnoviť nastavenia zariadenia</string>
+    <string name="pref_device_reset_summary">Obnoviť nastavenia zariadenia späť na predvolené</string>
 	  
     <string name="app_package">Balík:</string>
-    <string name="download">Stiahnúť</string>
+    <string name="download">Získať</string>
     <string name="downloads">Sťahovania</string>
     <string name="app_downloading">Sťahovanie aplikácie...</string>
+    <string name="device_prefs_reset">Nastavenia boli obnovenené</string>
 	
 </resources>
