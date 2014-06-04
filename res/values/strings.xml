@@ -76,5 +76,7 @@
     <string name="update_apk" translatable="false">https://github.com/jackpf/ApkDownloader/blob/release/bin/ApkDownloader.apk?raw=true</string>
     <string name="update_title">New update available!</string>
     <string name="update_text">Version %1$s -> %2$s</string>
+    
+    <string name="admob_id" translatable="false">ca-app-pub-9822609068892864/1050163502</string>
 	
 </resources>

@@ -1,0 +1,16 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="0.1"
+    android:gravity="bottom">
+       
+       <com.google.ads.AdView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ads:adUnitId="@string/admob_id"
+            ads:adSize="SMART_BANNER"
+            ads:testDevices="TEST_EMULATOR"
+            ads:loadAdOnCreate="true" />
+
+</LinearLayout>

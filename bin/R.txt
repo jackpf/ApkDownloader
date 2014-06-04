@@ -328,8 +328,9 @@ int layout abs__search_view 0x7f030014
 int layout abs__simple_dropdown_hint 0x7f030015
 int layout activity_help 0x7f030016
 int layout activity_main 0x7f030017
-int layout sherlock_spinner_dropdown_item 0x7f030018
-int layout sherlock_spinner_item 0x7f030019
+int layout ads 0x7f030018
+int layout sherlock_spinner_dropdown_item 0x7f030019
+int layout sherlock_spinner_item 0x7f03001a
 int menu _downloads_context_menu 0x7f0c0000
 int menu main 0x7f0c0001
 int string abs__action_bar_home_description 0x7f0a0000
@@ -351,6 +352,7 @@ int string action_help 0x7f0a000f
 int string action_settings 0x7f0a000e
 int string activity_help_title 0x7f0a0011
 int string activity_preferences_title 0x7f0a0010
+int string admob_id 0x7f0a0050
 int string app_downloading 0x7f0a004a
 int string app_name 0x7f0a000d
 int string app_package 0x7f0a0047

@@ -999,8 +999,9 @@ containing a value of this type.
         public static final int abs__simple_dropdown_hint=0x7f030015;
         public static final int activity_help=0x7f030016;
         public static final int activity_main=0x7f030017;
-        public static final int sherlock_spinner_dropdown_item=0x7f030018;
-        public static final int sherlock_spinner_item=0x7f030019;
+        public static final int ads=0x7f030018;
+        public static final int sherlock_spinner_dropdown_item=0x7f030019;
+        public static final int sherlock_spinner_item=0x7f03001a;
     }
     public static final class menu {
         public static final int _downloads_context_menu=0x7f0c0000;
@@ -1052,6 +1053,7 @@ containing a value of this type.
         public static final int action_settings=0x7f0a000e;
         public static final int activity_help_title=0x7f0a0011;
         public static final int activity_preferences_title=0x7f0a0010;
+        public static final int admob_id=0x7f0a0050;
         public static final int app_downloading=0x7f0a004a;
         public static final int app_name=0x7f0a000d;
         public static final int app_package=0x7f0a0047;
