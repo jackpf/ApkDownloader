@@ -11,4 +11,9 @@ public class AuthenticationException extends Exception
     {
         super(s);
     }
+
+    public AuthenticationException(String s, Exception previous)
+    {
+        super(s, previous);
+    }
 }

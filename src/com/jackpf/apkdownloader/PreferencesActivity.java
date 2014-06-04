@@ -19,7 +19,6 @@ public class PreferencesActivity extends PreferenceActivity implements OnPrefere
         super.onCreate(savedInstanceState);
         
         addPreferencesFromResource(R.xml.preferences);
-        
         findPreference(getString(R.string.pref_device_reset_key)).setOnPreferenceClickListener(this);
     }
     

@@ -11,4 +11,9 @@ public class PlayApiException extends Exception
     {
         super(s);
     }
+
+    public PlayApiException(String s, Exception previous)
+    {
+        super(s, previous);
+    }
 }
