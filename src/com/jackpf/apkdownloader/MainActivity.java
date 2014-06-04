@@ -45,7 +45,7 @@ public class MainActivity extends SherlockActivity
         
         ui.initialise(appId);
         
-        new SelfUpdater(this).checkForUpdate();
+        //new SelfUpdater(this).checkForUpdate();
     }
     
     @Override
