@@ -131,7 +131,6 @@ public class Authenticator
                 if (subToken == null) {
                     throw new AuthenticationException("Auth key not found");
                 }
-                
             } catch (Exception e) {
                 throw new AuthenticationException(e.getMessage(), e);
             }
