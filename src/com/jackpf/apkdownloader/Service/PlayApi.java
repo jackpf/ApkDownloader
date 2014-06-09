@@ -157,7 +157,7 @@ public class PlayApi
         ).build();
         
         byte partialProtoBytes[] = proto.toByteArray();
-        partialProtoBytes[4] = -53; // Ahem...
+        partialProtoBytes[4] -= 2;
         
         ArrayList<Byte> packageNameByteList = new ArrayList<Byte>();
         packageNameByteList.add((byte) 19);
