@@ -13,10 +13,15 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.accounts.AccountManagerFuture;
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.Settings.Secure;
 
@@ -83,9 +88,8 @@ public class Authenticator
      */
     public String getToken() throws AuthenticationException
     {
-        // Can't get this to work quite right, not sure if it's not getting the right token
-        // or it's because it's a different length, but the download request 400's with this one
-        /*try {
+        // Attempt to use OAuth
+        try {
             AccountManager am = AccountManager.get(context);
             Account[] accounts = am.getAccountsByType("com.google");
             AccountManagerFuture<Bundle> accountManagerFuture;
@@ -94,7 +98,7 @@ public class Authenticator
             subToken = authTokenBundle.getString(AccountManager.KEY_AUTHTOKEN).toString();
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
         
         if (subToken == null) {
             try {

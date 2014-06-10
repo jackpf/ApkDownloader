@@ -16,7 +16,7 @@
     <string name="pref_email_key" translatable="false">email</string>
     <string name="pref_email_title">Email</string>
     <string name="pref_email_default" />
-    <string name="pref_email_summary">Your google login email address</string>
+    <string name="pref_email_summary">Your google login email address (leave blank if using OAuth)</string>
     <string name="pref_password_key" translatable="false">password</string>
     <string name="pref_password_title">Password</string>
     <string name="pref_password_default" />
