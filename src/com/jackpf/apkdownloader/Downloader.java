@@ -13,6 +13,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.preference.PreferenceManager;
 
 import com.jackpf.apkdownloader.Entity.App;
@@ -61,7 +62,7 @@ public class Downloader
             .setAllowedOverRoaming(true)
             .setTitle(app.getAppId())
             .setDescription(context.getString(R.string.app_downloading))
-            .setDestinationInExternalPublicDir(DOWNLOAD_DIR, app.getAppId() + ".apk")
+            .setDestinationInExternalPublicDir(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + DOWNLOAD_DIR, app.getAppId() + ".apk")
             .addRequestHeader("Cookie", "MarketDA=" + app.getMarketDA()) // + ";ANDROIDSECURE=" + authToken)
         ;
         
