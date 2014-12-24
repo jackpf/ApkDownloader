@@ -1,28 +1,6 @@
 package com.jackpf.apkdownloader.UI;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
-import android.content.Context;
-import android.os.Environment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.BaseAdapter;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.ActionMode;
-import com.actionbarsherlock.view.MenuItem;
 import com.jackpf.apkdownloader.Downloader;
 import com.jackpf.apkdownloader.Helpers;
 import com.jackpf.apkdownloader.R;
@@ -38,6 +16,8 @@ public class MainActivityUI extends UIInterface
     private ArrayAdapter<List<ApkFile>> adapter;
     
     private List<ApkFile> downloads = new ArrayList<ApkFile>();
+    
+    private ProgressDialog dialog;
     
     public MainActivityUI(Context context)
     {
@@ -108,16 +88,22 @@ public class MainActivityUI extends UIInterface
     
     public void preUpdate()
     {
-        
+        dialog = ProgressDialog.show(context, "Working", "Getting download path...");
     }
     
     public void update()
     {
-        
+        if (dialog != null) {
+            dialog.dismiss();
+        }
     }
     
     public void error(Exception e)
     {
+        if (dialog != null) {
+            dialog.dismiss();
+        }
+        
         if (e instanceof AuthenticationException) {
             Toast.makeText(context.getApplicationContext(), context.getString(R.string.error_unrecognized_login, e.getMessage()), Toast.LENGTH_LONG).show();
         } else if (e instanceof PlayApiException) {
@@ -132,6 +118,7 @@ public class MainActivityUI extends UIInterface
         private final Context context;
         private final T objects;
         private final LayoutInflater inflater;
+        private ArrayList<ApkFile> animatedViews = new ArrayList<ApkFile>();
 
         public ArrayAdapter(Context context, T objects) {
             this.context = context;
@@ -166,6 +153,13 @@ public class MainActivityUI extends UIInterface
             
             ((TextView) row.findViewById(R.id.package_name)).setText(apk.getFile().getName());
             ((ImageView) row.findViewById(R.id.package_icon)).setImageBitmap(apk.getIcon());
+            
+            if (!animatedViews.contains(apk)) {
+                Animation animation = AnimationUtils.loadAnimation(context, R.anim.apk_animation);
+                row.startAnimation(animation);
+                
+                animatedViews.add(apk);
+            }
             
             return row;
         }
